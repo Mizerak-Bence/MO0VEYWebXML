@@ -24,8 +24,9 @@ nav {
 
 nav a {
     text-decoration: underline;
-    color: #222;
+    color: #ffffff;
     font-size: 1.1em;
+    font-weight: bold;
 }
 img {
     width: 100%;
@@ -34,17 +35,14 @@ img {
     margin: 0px;
 }
 .header {
-    width: 60%;
-    max-width: 900px;
     margin: 40px auto 0 auto;
-    text-align: center;
     border-radius: 12px;
     padding-bottom: 20px;
 }
 .header img {
-    width: 100%;
-    height: auto;
+    width: 1900px;
+    height: 400px;
     display: block;
-    margin-bottom: 10px;
-    border-radius: 8px;
+    margin-bottom: 8px;
+    border-radius: 12px;
 }
