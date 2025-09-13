@@ -1,1 +1,1 @@
-Első órai feladat leírás.:
+--
