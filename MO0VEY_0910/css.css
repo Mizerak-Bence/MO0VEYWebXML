@@ -40,9 +40,9 @@ img {
     padding-bottom: 20px;
 }
 .header img {
-    width: 1900px;
+    width: 1850px;
     height: 400px;
     display: block;
-    margin-bottom: 8px;
-    border-radius: 12px;
+    margin-bottom: 0px;
+    border-radius: 0px;
 }
