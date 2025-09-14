@@ -12,8 +12,14 @@ body {
 footer {
     margin-top: auto;
     background: rgba(255,255,255,0.1);
-    text-align: left;
+    text-align: center;
     padding: 10px 0;
+    color: #fff;
+    font-size: 1em;
+    letter-spacing: 1px;
+}
+footer p {
+    margin: 0;
 }
 nav {
     display: flex;
@@ -25,7 +31,7 @@ nav {
 nav a {
     text-decoration: underline;
     color: #ffffff;
-    font-size: 1.1em;
+    font-size: 1.7em;
     font-weight: bold;
 }
 img {
@@ -37,7 +43,7 @@ img {
 .header {
     margin: 40px auto 0 auto;
     border-radius: 12px;
-    padding-bottom: 20px;
+    padding-bottom: 0px;
 }
 .header img {
     width: 1850px;
@@ -45,4 +51,46 @@ img {
     display: block;
     margin-bottom: 0px;
     border-radius: 0px;
+}
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 0px;
+    margin-bottom: 0;
+}
+h2 {
+    text-align: left;
+    color: #ffffff;
+    font-size: 1.5em;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.custom-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.nav-left {
+    flex: 1;
+    text-align: left;
+}
+
+.nav-center {
+    flex: 1;
+    text-align: center;
+}
+
+.nav-right {
+    flex: 1;
+    text-align: right;
+}
+
+.custom-nav a {
+    text-decoration: underline;
+    color: #ffffff;
+    font-size: 1.7em;
+    font-weight: bold;
 }
