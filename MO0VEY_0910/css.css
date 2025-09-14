@@ -94,3 +94,17 @@ h2 {
     font-size: 1.7em;
     font-weight: bold;
 }
+.content {
+    flex: initial; 
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; 
+}
+
+.detailed-description {
+    margin-top: 0;
+}

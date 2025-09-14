@@ -4,7 +4,16 @@
     <meta charset="UTF-8">
     <title>Webes adatkezelő környezetek</title>
         <link rel="stylesheet" type="text/css" href="css.css">
-
+    <style>
+        .corner-img {
+            position: fixed;
+            right: 30px;
+            bottom: 100px;
+            width: 450px;
+            height: auto;
+            z-index: 100;
+        }
+    </style>
 </head>
 <body>
     <div class="header">
@@ -23,8 +32,36 @@
         </div>
     </nav>
 </div>
-    <h2>Webes adatkezelő környezetek</h2>
 
+    <main class="main">
+        <div class="content">
+            <h2>Webes adatkezelő környezetek</h2>
+            <ul>
+                <li>Oktató
+                    <ul>
+                        <li><strong><u>Dr. Bednarik László</u></strong></li>
+                    </ul>
+                </li>
+                <li>Kredit
+                    <ul>
+                        <li><strong>5</strong></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="detailed-description">
+            <h3>Tematika</h3>
+            <ul>
+                <li>XML alapok</li>
+                <li>Webes szolgáltatások (REST, SOAP)</li>
+                <li>JSON és XML adatformátumok</li>
+                <li>Adatbázisok és XML</li>
+            </ul>
+        </div>
+    </main>
+
+    <img src="JsonSChema.jpg" alt="HTML5" class="corner-img">
     <footer>
         <p>Mizerák Bence, MO0VEY 2025</p>
     </footer>
