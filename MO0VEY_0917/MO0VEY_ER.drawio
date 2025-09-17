@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Minimal draw.io XML placeholder for ER diagram
+Open this file in draw.io/diagrams.net and edit visually. Entities: Ora, Targy, Idopont, Oktato, Helyszin, Szak with PK/FK notes
+-->
+<mxfile host="app.diagrams.net">
+  <diagram name="ER">
+    <mxGraphModel dx="1420" dy="830" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ORA" value="ORA\nPK: id\nattr: tipus" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#000;" vertex="1" parent="1">
+          <mxGeometry x="60" y="60" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="TARGY" value="TARGY\nPK: targy_id\nattr: nev" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#000;" vertex="1" parent="1">
+          <mxGeometry x="260" y="60" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IDOPONT" value="IDOPONT\nPK: idopont_id\nattr: nap,tol,ig" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#000;" vertex="1" parent="1">
+          <mxGeometry x="60" y="180" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="OKTATO" value="OKTATO\nPK: oktato_id\nattr: nev" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#000;" vertex="1" parent="1">
+          <mxGeometry x="260" y="180" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HELY" value="HELYSZIN\nPK: hely_id\nattr: nev" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#000;" vertex="1" parent="1">
+          <mxGeometry x="60" y="300" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="SZAK" value="SZAK\nPK: szak_id\nattr: nev" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#000;" vertex="1" parent="1">
+          <mxGeometry x="260" y="300" width="220" height="80" as="geometry" />
+        </mxCell>
+        <!-- relationships (FKs) -->
+        <mxCell id="r1" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=none;" edge="1" parent="1" source="ORA" target="TARGY">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r2" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=none;" edge="1" parent="1" source="ORA" target="IDOPONT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r3" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=none;" edge="1" parent="1" source="ORA" target="OKTATO">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r4" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=none;" edge="1" parent="1" source="ORA" target="HELY">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r5" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=none;" edge="1" parent="1" source="ORA" target="SZAK">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
