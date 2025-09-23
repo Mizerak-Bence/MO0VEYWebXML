@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<konferencia>
+    <cim>MO0VEY Konferencia</cim>
+    <Datum>2025.09.17</Datum>
+    <eloado>
+        <nev>Dr. Szabó Anna</nev>
+        <adoszam>12345678</adoszam>
+        <lakcim>Budapest, Fő utca 1.</lakcim>
+    </eloado>
+    <helyszin>Budapest, Műszaki Egyetem</helyszin>
+    <Hallgatok>
+        <hallgato NEPTUNKOD="1ASd3r">
+            <nev>Dr. Kovács Péter</nev>
+            <lakcim>Budapest, Fő utca 2.</lakcim>
+        </hallgato>
+        <hallgato NEPTUNKOD="2ASd3r">
+            <nev>Dr. Nagy Éva</nev>
+            <lakcim>Budapest, Fő utca 3.</lakcim>
+        </hallgato>
+    </Hallgatok>
+</konferencia>
