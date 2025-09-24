@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mozi SYSTEM "MO0VEY_mozi.dtd">
+
+<mozi>
+    <film id="f1" mufaj="romantikus">
+        <rendezo id="r1" nev="Nemes Jeles László"/>
+        <szinesz id="s1" nev="Színész Anna"/>
+        <iro id="i1" nev="Író Béla"/>
+    </film>
+    <film id="f2">
+        <rendezo id="r2" nev="Rendező Károly"/>
+        <szinesz id="s2" nev="Színész Béla"/>
+        <szinesz id="s3" nev="Színész Cecília"/>
+        <iro id="i2" nev="Író Dénes"/>
+    </film>
+</mozi>

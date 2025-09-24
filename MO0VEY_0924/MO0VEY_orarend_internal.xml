@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE XY_orarend [
+  <!ELEMENT XY_orarend (ora+)>
+  <!ELEMENT ora (targy, idopont, helyszin, oktato, szak)>
+  <!ATTLIST ora
+    id ID #REQUIRED
+    tipus (előadás | gyakorlat | konzultáció | ismétlés) #REQUIRED>
+  <!ELEMENT targy (#PCDATA)>
+  <!ELEMENT idopont (nap, tol, ig)>
+  <!ELEMENT nap (#PCDATA)>
+  <!ELEMENT tol (#PCDATA)>
+  <!ELEMENT ig (#PCDATA)>
+  <!ELEMENT helyszin (#PCDATA)>
+  <!ELEMENT oktato (#PCDATA)>
+  <!ELEMENT szak (#PCDATA)>
+]>
+<XY_orarend>
+  <ora id="ora_001" tipus="előadás">
+    <targy>Számítógép hálózatok</targy>
+    <idopont>
+      <nap>hétfő</nap>
+      <tol>08:00</tol>
+      <ig>10:00</ig>
+    </idopont>
+    <helyszin>I. e.a</helyszin>
+    <oktato>Dr. Kovács Szilveszter Dezső</oktato>
+    <szak>Programtervező Informatika BSC</szak>
+  </ora>
+</XY_orarend>
