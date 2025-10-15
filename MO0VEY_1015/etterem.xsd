@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+  <xs:simpleType name="KodType">
+    <xs:restriction base="xs:token">
+      <xs:pattern value="[A-Za-z0-9_\-]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="DatumHuType">
+    <xs:annotation><xs:documentation>YYYY.MM.DD</xs:documentation></xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\d{4}\.\d{2}\.\d{2}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="IdotartamHonapType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\d+\s+hónap"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="MuszakType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Délelőtt"/>
+      <xs:enumeration value="Délután"/>
+      <xs:enumeration value="Este"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="vendeglatas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="etterem" type="EtteremType" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="foszakacs" type="FoszakacsType" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="szakacs" type="SzakacsType" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="gyakornok" type="GyakornokType" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+
+    <!-- Kulcsok és hivatkozások -->
+    <xs:key name="etteremByEkod">
+      <xs:selector xpath="etterem"/>
+      <xs:field xpath="@ekod"/>
+    </xs:key>
+
+    <xs:key name="foszakacsByFkod">
+      <xs:selector xpath="foszakacs"/>
+      <xs:field xpath="@fkod"/>
+    </xs:key>
+
+    <xs:key name="szakacsByFkod">
+      <xs:selector xpath="szakacs"/>
+      <xs:field xpath="@fkod"/>
+    </xs:key>
+
+    <xs:key name="gyakornokByGykod">
+      <xs:selector xpath="gyakornok"/>
+      <xs:field xpath="@gykod"/>
+    </xs:key>
+
+    <xs:keyref name="foszakacsEtteremRef" refer="etteremByEkod">
+      <xs:selector xpath="foszakacs"/>
+      <xs:field xpath="@e_f"/>
+    </xs:keyref>
+
+    <xs:keyref name="szakacsEtteremRef" refer="etteremByEkod">
+      <xs:selector xpath="szakacs"/>
+      <xs:field xpath="@e_sz"/>
+    </xs:keyref>
+  </xs:element>
+
+  <xs:complexType name="EtteremType">
+    <xs:sequence>
+      <xs:element name="nev" type="xs:string"/>
+      <xs:element name="cim" type="CimType"/>
+      <xs:element name="csillag" type="CsillagType"/>
+    </xs:sequence>
+    <xs:attribute name="ekod" type="KodType" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CimType">
+    <xs:sequence>
+      <xs:element name="varos" type="xs:string"/>
+      <xs:element name="utca" type="xs:string"/>
+      <xs:element name="hazszam" type="xs:positiveInteger"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="CsillagType">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="5"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="FoszakacsType">
+    <xs:sequence>
+      <xs:element name="nev" type="xs:string"/>
+      <xs:element name="eletkor" type="xs:positiveInteger"/>
+      <xs:element name="vegzettseg" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="fkod" type="KodType" use="required"/>
+    <xs:attribute name="e_f" type="KodType" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="SzakacsType">
+    <xs:sequence>
+      <xs:element name="nev" type="xs:string"/>
+      <xs:element name="eletkor" type="xs:positiveInteger" minOccurs="0"/>
+      <xs:element name="reszleg" type="xs:string"/>
+      <xs:element name="vegzettseg" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="fkod" type="KodType" use="required"/>
+    <xs:attribute name="e_sz" type="KodType" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="GyakornokType">
+    <xs:sequence>
+      <xs:element name="nev" type="xs:string"/>
+      <xs:element name="gyakorlat" type="GyakorlatType"/>
+      <xs:element name="muszak" type="MuszakType" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="gykod" type="KodType" use="required"/>
+    <xs:attribute name="o_gy" type="KodType" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="GyakorlatType">
+    <xs:sequence>
+      <xs:element name="kezdete" type="DatumHuType"/>
+      <xs:element name="idotartam" type="IdotartamHonapType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

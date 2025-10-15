@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<vendeglatas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="etterem.xsd"> 
+    
+    <etterem ekod="e1">
+        <nev>Trófea</nev>
+        <cim>
+            <varos>Budapest</varos>
+            <utca>Andrássy út 12.</utca>
+            <hazszam>12</hazszam>
+        </cim>
+        <csillag>4</csillag>
+    </etterem>
+
+    <etterem ekod="e2">
+        <nev>Gundel</nev>
+        <cim>
+            <varos>Budapest</varos>
+            <utca>Gundel</utca>
+            <hazszam>4</hazszam>
+        </cim>
+        <csillag>5</csillag>
+    </etterem>
+
+    <foszakacs fkod="f1" e_f="e1">
+        <nev>János Kovács</nev>
+        <eletkor>35</eletkor>
+        <vegzettseg>Szakközépiskola</vegzettseg>
+        <vegzettseg>Institut Paul Bocuse</vegzettseg>
+    </foszakacs>
+
+    <foszakacs fkod="f2" e_f="e2">
+        <nev>Nagy Károly</nev>
+        <eletkor>30</eletkor>
+        <vegzettseg>Le Cordon Bleu</vegzettseg>
+    </foszakacs>
+
+    <szakacs fkod="sz3" e_sz="e2">
+        <nev>Tálas Levente</nev>
+        <eletkor>40</eletkor>
+        <reszleg>Garde Manger</reszleg>
+        <vegzettseg>Szakközépiskola</vegzettseg>
+    </szakacs>
+
+    <szakacs fkod="sz4" e_sz="e1">
+        <nev>Szűcs Judit</nev>
+        <reszleg>Entremetier</reszleg>
+        <vegzettseg>Le Cordon Bleu</vegzettseg>
+        <vegzettseg>Institut Paul Bocuse</vegzettseg>
+    </szakacs>
+
+    <gyakornok gykod="gy1" o_gy="o1">
+        <nev>Bordás Dávid</nev>
+        <gyakorlat>
+            <kezdete>2021.08.20</kezdete>
+            <idotartam>2 hónap</idotartam>
+        </gyakorlat>
+        <muszak>Délelőtt</muszak>
+        <muszak>Este</muszak>
+    </gyakornok>
+
+    <gyakornok gykod="gy2" o_gy="o2">
+        <nev>Szilágyi István</nev>
+        <gyakorlat>
+            <kezdete>2021.06.01</kezdete>
+            <idotartam>4 hónap</idotartam>
+        </gyakorlat>
+        <muszak>Délután</muszak>
+    </gyakornok>
+
+
+
+</vendeglatas>
