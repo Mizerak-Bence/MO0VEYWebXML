@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file was incorrectly containing Java code.
+     The Java source has been moved to DomModifyKPR.java in the same folder. -->
+<moved>
+  <to>DomModifyKPR.java</to>
+</moved>

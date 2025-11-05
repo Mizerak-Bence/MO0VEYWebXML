@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<vendeglatas>
+    <etterem ekod="e1">
+        <nev>Gourmet Étterem</nev>
+        <cim>
+            <varos>Budapest</varos>
+            <utca>Andrássy út</utca>
+            <hazszam>12</hazszam>
+        </cim>
+        <csillag>5</csillag>
+    </etterem>
+
+    <etterem ekod="e2">
+        <nev>Falatozó Sarok</nev>
+        <cim>
+            <varos>Szeged</varos>
+            <utca>Kossuth Lajos utca</utca>
+            <hazszam>45</hazszam>
+        </cim>
+        <csillag>3</csillag>
+    </etterem>
+
+    <foszakacs fkod="f1" e_f="n1">
+        <nev>Kovács Ádám</nev>
+        <eletkor>45</eletkor>
+        <vegzettseg>Mesterszakács</vegzettseg>
+    </foszakacs>
+
+    <foszakacs fkod="f2" e_f="n2">
+        <nev>Nagy Réka</nev>
+        <eletkor>39</eletkor>
+        <vegzettseg>Szakácsmester</vegzettseg>
+    </foszakacs>
+
+    <szakacs szkod="sz1" e_sz="s1">
+        <nev>Tóth Bence</nev>
+        <eletkor>28</eletkor>
+        <vegzettseg>Szakács</vegzettseg>
+    </szakacs>
+
+    <szakacs szkod="sz2" e_sz="s2">
+        <nev>Szabó Dóra</nev>
+        <eletkor>31</eletkor>
+        <vegzettseg>Szakács</vegzettseg>
+    </szakacs>
+
+    <gyakornok gykod="gy1" e_gy="q1">
+        <nev>Fehér Laura</nev>
+        <gyakorlat>6 hónap</gyakorlat>
+        <muszak>
+            <kezdete>08:00</kezdete>
+            <idotartalma>6 óra</idotartalma>
+        </muszak>
+    </gyakornok>
+
+    <gyakornok gykod="gy2" e_gy="q2">
+        <nev>Varga Péter</nev>
+        <gyakorlat>3 hónap</gyakorlat>
+        <muszak>
+            <kezdete>14:00</kezdete>
+            <idotartalma>4 óra</idotartalma>
+        </muszak>
+    </gyakornok>
+
+    <rendeles rkod="r1" e_r="y1">
+        <osszeg>8200</osszeg>
+        <etel>Marhapörkölt galuskával</etel>
+    </rendeles>
+
+    <rendeles rkod="r2" e_r="y2">
+        <osszeg>3200</osszeg>
+        <etel>Rántott sajt hasábburgonyával</etel>
+    </rendeles>
+
+    <vendeg vkod="v1">
+        <nev>Kiss Mária</nev>
+        <eletkor>34</eletkor>
+        <cim>
+            <varos>Debrecen</varos>
+            <utca>Petőfi tér</utca>
+            <hazszam>7</hazszam>
+        </cim>
+    </vendeg>
+
+    <vendeg vkod="v2">
+        <nev>Horváth Gábor</nev>
+        <eletkor>29</eletkor>
+        <cim>
+            <varos>Pécs</varos>
+            <utca>Rákóczi út</utca>
+            <hazszam>21</hazszam>
+        </cim>
+    </vendeg>
+</vendeglatas>
