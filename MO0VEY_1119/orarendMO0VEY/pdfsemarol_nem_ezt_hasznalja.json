@@ -1,0 +1,61 @@
+{
+    "MO0VEY_orarend": {
+        "ora": [
+            {
+                "targy": "Programtervezés",
+                "idopont": {
+                    "nap": "Hétfő",
+                    "tol": "10",
+                    "ig": "12"
+                },
+                "helyszin": "Inf. 103",
+                "oktato": "Dr. Kiss Péter",
+                "szak": "MO0VEY"
+            },
+            {
+                "targy": "Adatbázisok",
+                "idopont": {
+                    "nap": "Kedd",
+                    "tol": "14",
+                    "ig": "16"
+                },
+                "helyszin": "Inf. 202",
+                "oktato": "Nagy Anna",
+                "szak": "MO0VEY"
+            },
+            {
+                "targy": "Webfejlesztés",
+                "idopont": {
+                    "nap": "Szerda",
+                    "tol": "8",
+                    "ig": "10"
+                },
+                "helyszin": "Inf. 105",
+                "oktato": "Szabó László",
+                "szak": "MO0VEY"
+            },
+            {
+                "targy": "Szoftverfejlesztés",
+                "idopont": {
+                    "nap": "Csütörtök",
+                    "tol": "12",
+                    "ig": "14"
+                },
+                "helyszin": "Inf. 204",
+                "oktato": "Tóth Éva",
+                "szak": "MO0VEY"
+            },
+            {
+                "targy": "Hálózatok alapjai",
+                "idopont": {
+                    "nap": "Péntek",
+                    "tol": "10",
+                    "ig": "12"
+                },
+                "helyszin": "Inf. 301",
+                "oktato": "Kovács Gábor",
+                "szak": "MO0VEY"
+            }
+        ]
+    }
+}

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XY_orarend>
+    <ora id="ora_001" tipus="előadás">
+        <targy>Számítógép hálózatok</targy>
+        <idopont>
+            <nap>hétfő</nap>
+            <tol>08:00</tol>
+            <ig>10:00</ig>
+        </idopont>
+        <helyszin>I. e.a</helyszin>
+        <oktato>Dr. Kovács Szilveszter Dezső</oktato>
+    <szak>Programtervező Informatika BSC</szak>
+    </ora>
+
+    <ora id="ora_002" tipus="előadás">
+        <targy>Web technológiák 1.</targy>
+        <idopont>
+            <nap>hétfő</nap>
+            <tol>10:00</tol>
+            <ig>12:00</ig>
+        </idopont>
+        <helyszin>V. e.a</helyszin>
+        <oktato>Dr. Agárdi Anita</oktato>
+    <szak>Programtervező Informatika BSC</szak>
+    </ora>
+
+    <ora id="ora_003" tipus="előadás">
+        <targy>Adatbázisrendszerek I.</targy>
+        <idopont>
+            <nap>kedd</nap>
+            <tol>08:00</tol>
+            <ig>10:00</ig>
+        </idopont>
+        <helyszin>I. e.a</helyszin>
+        <oktato>Dr. Kovács László József</oktato>
+    <szak>Programtervező Informatika BSC</szak>
+    </ora>
+
+    <ora id="ora_009" tipus="előadás">
+        <targy>Mesterséges intelligencia alapok</targy>
+        <idopont>
+            <nap>kedd</nap>
+            <tol>10:00</tol>
+            <ig>12:00</ig>
+        </idopont>
+        <helyszin>XXXII e.a</helyszin>
+        <oktato>Dr._Farkas</oktato>
+    <szak>Programtervező Informatika BSC</szak>
+    </ora>
+
+    <ora id="ora_010" tipus="gyakorlat">
+        <targy>Mesterséges intelligencia alapok</targy>
+        <idopont>
+            <nap>kedd</nap>
+            <tol>12:00</tol>
+            <ig>14:00</ig>
+        </idopont>
+        <helyszin>XXXII e.a</helyszin>
+        <oktato>Dr._Farkas</oktato>
+    <szak>Programtervező Informatika BSC</szak>
+    </ora>
+
+    <ora id="ora_011" tipus="előadás">
+        <targy>Algoritmusok és vizsgálatuk</targy>
+        <idopont>
+            <nap>kedd</nap>
+            <tol>14:00</tol>
+            <ig>16:00</ig>
+        </idopont>
+        <helyszin>XXX. e.a</helyszin>
+        <oktato>Dr.Házy Attila</oktato>
+    <szak>Programtervező Informatika BSC</szak>
+    </ora>
+
+    <ora id="ora_012" tipus="gyakorlat">
+        <targy>Algoritmusok és vizsgálatuk</targy>
+        <idopont>
+            <nap>kedd</nap>
+            <tol>16:00</tol>
+            <ig>18:00</ig>
+        </idopont>
+        <helyszin>XXX. e.a</helyszin>
+        <oktato>Dr.Házy Attila</oktato>
+    <szak>Programtervező Informatika BSC</szak>
+    </ora>
+
+    <ora id="ora_004" tipus="gyakorlat">
+        <targy>Webes adatok</targy>
+        <idopont>
+            <nap>szerda</nap>
+            <tol>08:00</tol>
+            <ig>09:30</ig>
+        </idopont>
+        <helyszin>310. T</helyszin>
+        <oktato>Dr. Kovács László József</oktato>
+    <szak>Programtervező Informatika BSC</szak>
+    </ora>
+
+    <ora id="ora_005" tipus="előadás">
+        <targy>Szoftverfejlesztés</targy>
+        <idopont>
+            <nap>csütörtök</nap>
+            <tol>11:00</tol>
+            <ig>12:30</ig>
+        </idopont>
+        <helyszin>204</helyszin>
+        <oktato>Dr._Varga</oktato>
+    <szak>Programtervező Informatika BSC</szak>
+    </ora>
+
+    <ora id="ora_006" tipus="gyakorlat">
+        <targy>Adatmodellezés</targy>
+        <idopont>
+            <nap>péntek</nap>
+            <tol>13:00</tol>
+            <ig>14:30</ig>
+        </idopont>
+        <helyszin>105</helyszin>
+        <oktato>Kiss_Mária</oktato>
+    <szak>Programtervező Informatika BSC</szak>
+    </ora>
+
+    <ora id="ora_007" tipus="konzultáció">
+        <targy>Projekt munka</targy>
+        <idopont>
+            <nap>szombat</nap>
+            <tol>10:00</tol>
+            <ig>12:00</ig>
+        </idopont>
+        <helyszin>110</helyszin>
+        <oktato>Dr._Nagy</oktato>
+    <szak>Programtervező Informatika BSC</szak>
+    </ora>
+
+    <ora id="ora_008" tipus="ismétlés">
+        <targy>Adatbázisok</targy>
+        <idopont>
+            <nap>vasárnap</nap>
+            <tol>09:00</tol>
+            <ig>10:30</ig>
+        </idopont>
+        <helyszin>202</helyszin>
+        <oktato>Prof._Kovács</oktato>
+    <szak>Programtervező Informatika BSC</szak>
+    </ora>
+
+</XY_orarend>
