@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Orarend_MO0VEY",
+  "type": "object",
+  "properties": {
+    "MO0VEY_orarend": {
+      "type": "object",
+      "properties": {
+        "ora": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "_attributes": {
+                "type": "object",
+                "properties": {
+                  "id": { "type": "string" },
+                  "tipus": { "type": "string" }
+                },
+                "required": ["id", "tipus"],
+                "additionalProperties": true
+              },
+              "targy": { "type": "string" },
+              "idopont": {
+                "type": "object",
+                "properties": {
+                  "nap": { "type": "string" },
+                  "tol": { "type": "string", "pattern": "^\\d{2}:\\d{2}$" },
+                  "ig": { "type": "string", "pattern": "^\\d{2}:\\d{2}$" }
+                },
+                "required": ["nap", "tol", "ig"],
+                "additionalProperties": true
+              },
+              "helyszin": { "type": "string" },
+              "oktato": { "type": "string" },
+              "szak": { "type": "string" }
+            },
+            "required": ["_attributes", "targy", "idopont", "helyszin", "oktato", "szak"],
+            "additionalProperties": true
+          }
+        }
+      },
+      "required": ["ora"],
+      "additionalProperties": true
+    }
+  },
+  "required": ["MO0VEY_orarend"],
+  "additionalProperties": true
+}
