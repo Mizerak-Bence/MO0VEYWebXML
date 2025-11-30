@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MO0VEY Órarend – 2025. I. félév</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+      table { border-collapse: collapse; }
+      th, td { border: 1px solid #000; padding: 4px; }
+      th { background-color: #c0e060; }
+    </style>
+  </head>
+  <body>
+    <h2>MO0VEY Órarend – 2025. I. félév</h2>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Típus</th>
+        <th>Tárgy</th>
+        <th>Nap</th>
+        <th>Tól</th>
+        <th>Ig</th>
+        <th>Helyszín</th>
+        <th>Oktató</th>
+        <th>Szak</th>
+      </tr>
+      <tr><td>ora_001</td><td>előadás</td><td>Számítógép hálózatok</td><td>hétfő</td><td>08:00</td><td>10:00</td><td>I. e.a</td><td>Dr. Kovács Szilveszter Dezső</td><td>Programtervező Informatika BSC</td></tr>
+      <tr><td>ora_002</td><td>előadás</td><td>Web technológiák 1.</td><td>hétfő</td><td>10:00</td><td>12:00</td><td>V. e.a</td><td>Dr. Agárdi Anita</td><td>Programtervező Informatika BSC</td></tr>
+      <tr><td>ora_003</td><td>előadás</td><td>Adatbázisrendszerek I.</td><td>kedd</td><td>08:00</td><td>10:00</td><td>I. e.a</td><td>Dr. Kovács László József</td><td>Programtervező Informatika BSC</td></tr>
+      <tr><td>ora_009</td><td>előadás</td><td>Mesterséges intelligencia alapok</td><td>kedd</td><td>10:00</td><td>12:00</td><td>XXXII e.a</td><td>Dr._Farkas</td><td>Programtervező Informatika BSC</td></tr>
+      <tr><td>ora_010</td><td>gyakorlat</td><td>Mesterséges intelligencia alapok</td><td>kedd</td><td>12:00</td><td>14:00</td><td>XXXII e.a</td><td>Dr._Farkas</td><td>Programtervező Informatika BSC</td></tr>
+      <tr><td>ora_011</td><td>előadás</td><td>Algoritmusok és vizsgálatuk</td><td>kedd</td><td>14:00</td><td>16:00</td><td>XXX. e.a</td><td>Dr.Házy Attila</td><td>Programtervező Informatika BSC</td></tr>
+      <tr><td>ora_012</td><td>gyakorlat</td><td>Algoritmusok és vizsgálatuk</td><td>kedd</td><td>16:00</td><td>18:00</td><td>XXX. e.a</td><td>Dr.Házy Attila</td><td>Programtervező Informatika BSC</td></tr>
+      <tr><td>ora_004</td><td>gyakorlat</td><td>Webes adatok</td><td>szerda</td><td>08:00</td><td>09:30</td><td>310. T</td><td>Dr. Kovács László József</td><td>Programtervező Informatika BSC</td></tr>
+      <tr><td>ora_005</td><td>előadás</td><td>Szoftverfejlesztés</td><td>csütörtök</td><td>11:00</td><td>12:30</td><td>204</td><td>Dr._Varga</td><td>Programtervező Informatika BSC</td></tr>
+      <tr><td>ora_006</td><td>gyakorlat</td><td>Adatmodellezés</td><td>péntek</td><td>13:00</td><td>14:30</td><td>105</td><td>Kiss_Mária</td><td>Programtervező Informatika BSC</td></tr>
+      <tr><td>ora_007</td><td>konzultáció</td><td>Projekt munka</td><td>szombat</td><td>10:00</td><td>12:00</td><td>110</td><td>Dr._Nagy</td><td>Programtervező Informatika BSC</td></tr>
+      <tr><td>ora_008</td><td>ismétlés</td><td>Adatbázisok</td><td>vasárnap</td><td>09:00</td><td>10:30</td><td>202</td><td>Prof._Kovács</td><td>Programtervező Informatika BSC</td></tr>
+    </table>
+  </body>
+</html>
