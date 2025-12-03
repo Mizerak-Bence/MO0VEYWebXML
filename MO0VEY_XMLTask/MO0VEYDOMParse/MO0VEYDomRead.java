@@ -12,7 +12,7 @@ public class MO0VEYDomRead {
 
     public static void main(String[] args) {
         try {
-            File xmlFile = new File("MO0VEY_XMLTask/MO0VEY_XML.xml");
+            File xmlFile = new File("MO0VEY_XML.xml");
 
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             factory.setNamespaceAware(true);

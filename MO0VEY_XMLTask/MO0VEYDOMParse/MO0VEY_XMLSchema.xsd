@@ -140,6 +140,8 @@
       <xs:element name="Betegseg_ID" type="IDTipus"/>
       <xs:element name="Gyogyszer_ID" type="IDTipus"/>
       <xs:element name="AjánlasLeiras" type="xs:string"/>
+      <xs:element name="KezelesIdotartam" type="xs:string" minOccurs="0"/>
+      <xs:element name="NapiMaxAdag" type="xs:string" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -197,6 +199,8 @@
       <xs:element name="Mennyiseg" type="xs:integer"/>
       <xs:element name="Egysegar" type="xs:integer"/>
       <xs:element name="Osszeg" type="xs:integer"/>
+      <xs:element name="KedvezmenySzazalek" type="xs:integer" minOccurs="0"/>
+      <xs:element name="Afakulcs" type="xs:decimal" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -250,6 +254,8 @@
       <xs:element name="Szamlaszam" type="xs:string"/>
       <xs:element name="Datum" type="xs:date"/>
       <xs:element name="Megjegyzes" type="xs:string" minOccurs="0"/>
+      <xs:element name="Fizetesi_had_ido" type="xs:string" minOccurs="0"/>
+      <xs:element name="FizetesiMod" type="xs:string" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -281,6 +287,8 @@
       <xs:element name="Mennyiseg" type="xs:integer"/>
       <xs:element name="Egysegar" type="xs:integer"/>
       <xs:element name="Osszeg" type="xs:integer"/>
+      <xs:element name="Lejarati_datum" type="xs:date" minOccurs="0"/>
+      <xs:element name="Raktarhely" type="xs:string" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 

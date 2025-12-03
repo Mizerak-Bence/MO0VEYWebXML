@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<GyogyszertarRendszer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MO0VEY_XMLSchema.xsd">
+    
+  <Gyogyszerek>
+        
+    <Gyogyszer>
+            
+      <Gyogyszer_ID>G001</Gyogyszer_ID>
+            
+      <Nev>Algoflex 400 mg</Nev>
+            
+      <Hatanyag>Ibuprofen</Hatanyag>
+            
+      <Receptkoteles>nem</Receptkoteles>
+            
+      <Kategoria>fajdalomcsillapito</Kategoria>
+            
+      <Leiras>Enyhe es kozepes fajdalmak csillapitasara.</Leiras>
+            
+      <MellekHatasok>
+                
+        <MellekHatas>Gyomorpanaszok</MellekHatas>
+                
+        <MellekHatas>Fejfajas</MellekHatas>
+              
+      </MellekHatasok>
+          
+    </Gyogyszer>
+        
+    <Gyogyszer>
+            
+      <Gyogyszer_ID>G002</Gyogyszer_ID>
+            
+      <Nev>Paracetamol 500 mg</Nev>
+            
+      <Hatanyag>Paracetamol</Hatanyag>
+            
+      <Receptkoteles>nem</Receptkoteles>
+            
+      <Kategoria>lazcsillapito</Kategoria>
+            
+      <Leiras>Laz es fajdalom csillapitasara.</Leiras>
+            
+      <MellekHatasok>
+                
+        <MellekHatas>Majterheles hosszu tavu szedeskor</MellekHatas>
+                
+        <MellekHatas>Hanyinger</MellekHatas>
+              
+      </MellekHatasok>
+          
+    </Gyogyszer>
+      
+  </Gyogyszerek>
+    
+  <Kiszerelesek>
+        
+    <Kiszereles>
+            
+      <Kiszereles_ID>K001</Kiszereles_ID>
+            
+      <Gyogyszer_ID>G001</Gyogyszer_ID>
+            
+      <Forma>tabletta</Forma>
+            
+      <Mennyiseg>10</Mennyiseg>
+            
+      <Ar>1590</Ar>
+            
+      <Egyseg>db</Egyseg>
+          
+    </Kiszereles>
+        
+    <Kiszereles>
+            
+      <Kiszereles_ID>K002</Kiszereles_ID>
+            
+      <Gyogyszer_ID>G001</Gyogyszer_ID>
+            
+      <Forma>tabletta</Forma>
+            
+      <Mennyiseg>20</Mennyiseg>
+            
+      <Ar>2790</Ar>
+            
+      <Egyseg>db</Egyseg>
+          
+    </Kiszereles>
+        
+    <Kiszereles>
+            
+      <Kiszereles_ID>K003</Kiszereles_ID>
+            
+      <Gyogyszer_ID>G002</Gyogyszer_ID>
+            
+      <Forma>tabletta</Forma>
+            
+      <Mennyiseg>20</Mennyiseg>
+            
+      <Ar>1590</Ar>
+            
+      <Egyseg>db</Egyseg>
+          
+    </Kiszereles>
+      
+  </Kiszerelesek>
+    
+  <Betegsegek>
+        
+    <Betegseg>
+            
+      <Betegseg_ID>B001</Betegseg_ID>
+            
+      <Nev>Fejfajas</Nev>
+            
+      <Leiras>Elsosorban enyhe vagy kozepes fejfajas.</Leiras>
+            
+      <Figyelmeztetes>Tarto vagy erosen fokozodo fajdalom eseten orvosi vizsgalat szukseges.</Figyelmeztetes>
+            
+      <Tunetek>
+                
+        <Tunet>Latenyes, tompa fejfajas</Tunet>
+                
+        <Tunet>Koncentracios nehezsegek</Tunet>
+              
+      </Tunetek>
+          
+    </Betegseg>
+        
+    <Betegseg>
+            
+      <Betegseg_ID>B002</Betegseg_ID>
+            
+      <Nev>Laz</Nev>
+            
+      <Leiras>Testhomerseklet 38 fok felett.</Leiras>
+            
+      <Figyelmeztetes>Hosszan tarto, magas laz eseten mielobbi orvosi vizsgalat szukseges.</Figyelmeztetes>
+            
+      <Tunetek>
+                
+        <Tunet>Hidegrazas</Tunet>
+                
+        <Tunet>Izzadas</Tunet>
+              
+      </Tunetek>
+          
+    </Betegseg>
+      
+  </Betegsegek>
+    
+  <BetegsegGyogyszerKapcsolatok>
+        
+    <BetegsegGyogyszer>
+            
+      <Betegseg_ID>B001</Betegseg_ID>
+            
+      <Gyogyszer_ID>G001</Gyogyszer_ID>
+            
+      <AjánlasLeiras>Fejfajas eseten szukseg szerint, maximum napi 3x1 tabletta.</AjánlasLeiras>
+          
+    </BetegsegGyogyszer>
+        
+    <BetegsegGyogyszer>
+            
+      <Betegseg_ID>B001</Betegseg_ID>
+            
+      <Gyogyszer_ID>G002</Gyogyszer_ID>
+            
+      <AjánlasLeiras>Fejfajas eseten alternativ fajdalomcsillapito.</AjánlasLeiras>
+          
+    </BetegsegGyogyszer>
+        
+    <BetegsegGyogyszer>
+            
+      <Betegseg_ID>B002</Betegseg_ID>
+            
+      <Gyogyszer_ID>G002</Gyogyszer_ID>
+            
+      <AjánlasLeiras>Laz csokkentesere, maximum napi 4x1 tabletta.</AjánlasLeiras>
+          
+    </BetegsegGyogyszer>
+      
+  </BetegsegGyogyszerKapcsolatok>
+    
+  <Rendelesek>
+        
+    <Rendeles_Fej>
+            
+      <Rendeles_ID>R001</Rendeles_ID>
+            
+      <Nev>Kiss Anna</Nev>
+            
+      <Email>anna.kiss@example.com</Email>
+            
+      <Datum>2025-11-01</Datum>
+            
+      <Megjegyzes>Hazhozszallitas delutan.</Megjegyzes>
+          
+    </Rendeles_Fej>
+        
+    <Rendeles_Fej>
+            
+      <Rendeles_ID>R002</Rendeles_ID>
+            
+      <Nev>Nagy Peter</Nev>
+            
+      <Email>peter.nagy@example.com</Email>
+            
+      <Datum>2025-11-03</Datum>
+            
+      <Megjegyzes>Atvetel szemelyesen a patikaban.</Megjegyzes>
+          
+    </Rendeles_Fej>
+        
+    <Rendeles_Tetelek>
+            
+      <Rendeles_Tetel>
+                
+        <Tetel_ID>RT001</Tetel_ID>
+                
+        <Rendeles_ID>R001</Rendeles_ID>
+                
+        <Kiszereles_ID>K001</Kiszereles_ID>
+                
+        <Mennyiseg>1</Mennyiseg>
+                
+        <Egysegar>1590</Egysegar>
+                
+        <Osszeg>1590</Osszeg>
+              
+      </Rendeles_Tetel>
+            
+      <Rendeles_Tetel>
+                
+        <Tetel_ID>RT002</Tetel_ID>
+                
+        <Rendeles_ID>R001</Rendeles_ID>
+                
+        <Kiszereles_ID>K003</Kiszereles_ID>
+                
+        <Mennyiseg>2</Mennyiseg>
+                
+        <Egysegar>1590</Egysegar>
+                
+        <Osszeg>3180</Osszeg>
+              
+      </Rendeles_Tetel>
+            
+      <Rendeles_Tetel>
+                
+        <Tetel_ID>RT003</Tetel_ID>
+                
+        <Rendeles_ID>R002</Rendeles_ID>
+                
+        <Kiszereles_ID>K002</Kiszereles_ID>
+                
+        <Mennyiseg>1</Mennyiseg>
+                
+        <Egysegar>2790</Egysegar>
+                
+        <Osszeg>2790</Osszeg>
+              
+      </Rendeles_Tetel>
+          
+    </Rendeles_Tetelek>
+      
+  </Rendelesek>
+    
+  <Szallitok>
+        
+    <Szallito>
+            
+      <Szallito_ID>S001</Szallito_ID>
+            
+      <Nev>GyorsGyogyszer Kft.</Nev>
+            
+      <Orszag>Magyarorszag</Orszag>
+            
+      <Varos>Budapest</Varos>
+            
+      <UtcaHazszam>Kossuth Lajos utca 10.</UtcaHazszam>
+            
+      <Telefon>+36-1-555-1234</Telefon>
+            
+      <Email>info@gyorsgyogyszer.hu</Email>
+          
+    </Szallito>
+        
+    <Szallito>
+            
+      <Szallito_ID>S002</Szallito_ID>
+            
+      <Nev>PatikaLogisztika Zrt.</Nev>
+            
+      <Orszag>Magyarorszag</Orszag>
+            
+      <Varos>Debrecen</Varos>
+            
+      <UtcaHazszam>Fo ut 22.</UtcaHazszam>
+            
+      <Telefon>+36-52-555-987</Telefon>
+            
+      <Email>kapcsolat@patikalogisztika.hu</Email>
+          
+    </Szallito>
+      
+  </Szallitok>
+    
+  <Beszerzesek>
+        
+    <Beszerzes_Fej>
+            
+      <Beszerzes_ID>BESZ001</Beszerzes_ID>
+            
+      <Szallito_ID>S001</Szallito_ID>
+            
+      <Szamlaszam>2025-1001</Szamlaszam>
+            
+      <Datum>2025-10-20</Datum>
+            
+      <Megjegyzes>Oszre toltott keszlet.</Megjegyzes>
+          
+    </Beszerzes_Fej>
+        
+    <Beszerzes_Fej>
+            
+      <Beszerzes_ID>BESZ002</Beszerzes_ID>
+            
+      <Szallito_ID>S002</Szallito_ID>
+            
+      <Szamlaszam>2025-1015</Szamlaszam>
+            
+      <Datum>2025-11-05</Datum>
+            
+      <Megjegyzes>Lazcsillapitok potlasa.</Megjegyzes>
+          
+    </Beszerzes_Fej>
+        
+    <Beszerzes_Tetelek>
+            
+      <Beszerzes_Tetel>
+                
+        <Tetel_ID>BT001</Tetel_ID>
+                
+        <Beszerzes_ID>BESZ001</Beszerzes_ID>
+                
+        <Kiszereles_ID>K001</Kiszereles_ID>
+                
+        <Mennyiseg>50</Mennyiseg>
+                
+        <Egysegar>990</Egysegar>
+                
+        <Osszeg>49500</Osszeg>
+              
+      </Beszerzes_Tetel>
+            
+      <Beszerzes_Tetel>
+                
+        <Tetel_ID>BT002</Tetel_ID>
+                
+        <Beszerzes_ID>BESZ001</Beszerzes_ID>
+                
+        <Kiszereles_ID>K002</Kiszereles_ID>
+                
+        <Mennyiseg>30</Mennyiseg>
+                
+        <Egysegar>1900</Egysegar>
+                
+        <Osszeg>57000</Osszeg>
+              
+      </Beszerzes_Tetel>
+            
+      <Beszerzes_Tetel>
+                
+        <Tetel_ID>BT003</Tetel_ID>
+                
+        <Beszerzes_ID>BESZ002</Beszerzes_ID>
+                
+        <Kiszereles_ID>K003</Kiszereles_ID>
+                
+        <Mennyiseg>40</Mennyiseg>
+                
+        <Egysegar>1100</Egysegar>
+                
+        <Osszeg>44000</Osszeg>
+              
+      </Beszerzes_Tetel>
+          
+    </Beszerzes_Tetelek>
+      
+  </Beszerzesek>
+  
+</GyogyszertarRendszer>
