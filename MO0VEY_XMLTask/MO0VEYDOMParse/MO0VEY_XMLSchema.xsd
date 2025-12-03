@@ -1,0 +1,298 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+  <!-- Saját egyszerű típusok -->
+  <xs:simpleType name="IDTipus">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="20"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ReceptkotelesTipus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="igen"/>
+      <xs:enumeration value="nem"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Gyökérelem -->
+  <xs:element name="GyogyszertarRendszer" type="GyogyszertarRendszerTipus"/>
+
+  <xs:complexType name="GyogyszertarRendszerTipus">
+    <xs:sequence>
+      <xs:element ref="Gyogyszerek"/>
+      <xs:element ref="Kiszerelesek"/>
+      <xs:element ref="Betegsegek"/>
+      <xs:element ref="BetegsegGyogyszerKapcsolatok"/>
+      <xs:element ref="Rendelesek"/>
+      <xs:element ref="Szallitok"/>
+      <xs:element ref="Beszerzesek"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Gyogyszerek -->
+  <xs:element name="Gyogyszerek" type="GyogyszerekTipus"/>
+
+  <xs:complexType name="GyogyszerekTipus">
+    <xs:sequence>
+      <xs:element name="Gyogyszer" type="GyogyszerTipus" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GyogyszerTipus">
+    <xs:sequence>
+      <xs:element name="Gyogyszer_ID" type="IDTipus"/>
+      <xs:element name="Nev" type="xs:string"/>
+      <xs:element name="Hatanyag" type="xs:string"/>
+      <xs:element name="Receptkoteles" type="ReceptkotelesTipus"/>
+      <xs:element name="Kategoria" type="xs:string"/>
+      <xs:element name="Leiras" type="xs:string"/>
+      <xs:element name="MellekHatasok" type="MellekHatasokTipus" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="MellekHatasokTipus">
+    <xs:sequence>
+      <xs:element name="MellekHatas" type="xs:string" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Kiszerelesek -->
+  <xs:element name="Kiszerelesek" type="KiszerelesekTipus">
+    <!-- Kiszereles kulcs -->
+    <xs:key name="KiszerelesKey">
+      <xs:selector xpath="Kiszereles"/>
+      <xs:field xpath="Kiszereles_ID"/>
+    </xs:key>
+
+    <!-- Kiszereles.Gyogyszer_ID -> Gyogyszer.Gyogyszer_ID -->
+    <xs:keyref name="Kiszereles_GyogyszerRef" refer="GyogyszerKey">
+      <xs:selector xpath="Kiszereles"/>
+      <xs:field xpath="Gyogyszer_ID"/>
+    </xs:keyref>
+  </xs:element>
+
+  <xs:complexType name="KiszerelesekTipus">
+    <xs:sequence>
+      <xs:element name="Kiszereles" type="KiszerelesTipus" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="KiszerelesTipus">
+    <xs:sequence>
+      <xs:element name="Kiszereles_ID" type="IDTipus"/>
+      <xs:element name="Gyogyszer_ID" type="IDTipus"/>
+      <xs:element name="Forma" type="xs:string"/>
+      <xs:element name="Mennyiseg" type="xs:integer"/>
+      <xs:element name="Ar" type="xs:integer"/>
+      <xs:element name="Egyseg" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Betegsegek -->
+  <xs:element name="Betegsegek" type="BetegsegekTipus"/>
+
+  <xs:complexType name="BetegsegekTipus">
+    <xs:sequence>
+      <xs:element name="Betegseg" type="BetegsegTipus" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="BetegsegTipus">
+    <xs:sequence>
+      <xs:element name="Betegseg_ID" type="IDTipus"/>
+      <xs:element name="Nev" type="xs:string"/>
+      <xs:element name="Leiras" type="xs:string"/>
+      <xs:element name="Figyelmeztetes" type="xs:string"/>
+      <xs:element name="Tunetek" type="TunetekTipus" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="TunetekTipus">
+    <xs:sequence>
+      <xs:element name="Tunet" type="xs:string" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Betegseg-Gyogyszer kapcsolatok -->
+  <xs:element name="BetegsegGyogyszerKapcsolatok" type="BetegsegGyogyszerKapcsolatokTipus">
+    <!-- BetegsegGyogyszer.Betegseg_ID -> Betegseg.Betegseg_ID -->
+    <xs:keyref name="BetegsegGyogyszer_BetegsegRef" refer="BetegsegKey">
+      <xs:selector xpath="GyogyszertarRendszer/BetegsegGyogyszerKapcsolatok/BetegsegGyogyszer"/>
+      <xs:field xpath="Betegseg_ID"/>
+    </xs:keyref>
+
+    <!-- BetegsegGyogyszer.Gyogyszer_ID -> Gyogyszer.Gyogyszer_ID -->
+    <xs:keyref name="BetegsegGyogyszer_GyogyszerRef" refer="GyogyszerKey">
+      <xs:selector xpath="GyogyszertarRendszer/BetegsegGyogyszerKapcsolatok/BetegsegGyogyszer"/>
+      <xs:field xpath="Gyogyszer_ID"/>
+    </xs:keyref>
+  </xs:element>
+
+  <xs:complexType name="BetegsegGyogyszerKapcsolatokTipus">
+    <xs:sequence>
+      <xs:element name="BetegsegGyogyszer" type="BetegsegGyogyszerTipus" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="BetegsegGyogyszerTipus">
+    <xs:sequence>
+      <xs:element name="Betegseg_ID" type="IDTipus"/>
+      <xs:element name="Gyogyszer_ID" type="IDTipus"/>
+      <xs:element name="AjánlasLeiras" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Rendelesek -->
+  <xs:element name="Rendelesek" type="RendelesekTipus">
+    <!-- Rendeles kulcs -->
+    <xs:key name="RendelesKey">
+      <xs:selector xpath="Rendeles_Fej"/>
+      <xs:field xpath="Rendeles_ID"/>
+    </xs:key>
+  </xs:element>
+
+  <xs:complexType name="RendelesekTipus">
+    <xs:sequence>
+      <xs:element name="Rendeles_Fej" type="RendelesFejTipus" maxOccurs="unbounded"/>
+      <xs:element name="Rendeles_Tetelek" type="RendelesTetelekTipus"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RendelesFejTipus">
+    <xs:sequence>
+      <xs:element name="Rendeles_ID" type="IDTipus"/>
+      <xs:element name="Nev" type="xs:string"/>
+      <xs:element name="Email" type="xs:string"/>
+      <xs:element name="Datum" type="xs:date"/>
+      <xs:element name="Megjegyzes" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="Rendeles_Tetelek" type="RendelesTetelekTipus">
+    <!-- Rendeles_Tetel.Rendeles_ID -> Rendeles_Fej.Rendeles_ID -->
+    <xs:keyref name="RendelesTetel_RendelesRef" refer="RendelesKey">
+      <xs:selector xpath="Rendeles_Tetel"/>
+      <xs:field xpath="Rendeles_ID"/>
+    </xs:keyref>
+
+    <!-- Rendeles_Tetel.Kiszereles_ID -> Kiszereles.Kiszereles_ID -->
+    <xs:keyref name="RendelesTetel_KiszerelesRef" refer="KiszerelesKey">
+      <xs:selector xpath="Rendeles_Tetel"/>
+      <xs:field xpath="Kiszereles_ID"/>
+    </xs:keyref>
+  </xs:element>
+
+  <xs:complexType name="RendelesTetelekTipus">
+    <xs:sequence>
+      <xs:element name="Rendeles_Tetel" type="RendelesTetelTipus" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RendelesTetelTipus">
+    <xs:sequence>
+      <xs:element name="Tetel_ID" type="IDTipus"/>
+      <xs:element name="Rendeles_ID" type="IDTipus"/>
+      <xs:element name="Kiszereles_ID" type="IDTipus"/>
+      <xs:element name="Mennyiseg" type="xs:integer"/>
+      <xs:element name="Egysegar" type="xs:integer"/>
+      <xs:element name="Osszeg" type="xs:integer"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Szallitok -->
+  <xs:element name="Szallitok" type="SzallitokTipus">
+    <!-- Szallito kulcs -->
+    <xs:key name="SzallitoKey">
+      <xs:selector xpath="Szallito"/>
+      <xs:field xpath="Szallito_ID"/>
+    </xs:key>
+  </xs:element>
+
+  <xs:complexType name="SzallitokTipus">
+    <xs:sequence>
+      <xs:element name="Szallito" type="SzallitoTipus" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SzallitoTipus">
+    <xs:sequence>
+      <xs:element name="Szallito_ID" type="IDTipus"/>
+      <xs:element name="Nev" type="xs:string"/>
+      <xs:element name="Orszag" type="xs:string"/>
+      <xs:element name="Varos" type="xs:string"/>
+      <xs:element name="UtcaHazszam" type="xs:string"/>
+      <xs:element name="Telefon" type="xs:string"/>
+      <xs:element name="Email" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Beszerzesek -->
+  <xs:element name="Beszerzesek" type="BeszerzesekTipus">
+    <!-- Beszerzes kulcs -->
+    <xs:key name="BeszerzesKey">
+      <xs:selector xpath="Beszerzes_Fej"/>
+      <xs:field xpath="Beszerzes_ID"/>
+    </xs:key>
+  </xs:element>
+
+  <xs:complexType name="BeszerzesekTipus">
+    <xs:sequence>
+      <xs:element name="Beszerzes_Fej" type="BeszerzesFejTipus" maxOccurs="unbounded"/>
+      <xs:element name="Beszerzes_Tetelek" type="BeszerzesTetelekTipus"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="BeszerzesFejTipus">
+    <xs:sequence>
+      <xs:element name="Beszerzes_ID" type="IDTipus"/>
+      <xs:element name="Szallito_ID" type="IDTipus"/>
+      <xs:element name="Szamlaszam" type="xs:string"/>
+      <xs:element name="Datum" type="xs:date"/>
+      <xs:element name="Megjegyzes" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="Beszerzes_Tetelek" type="BeszerzesTetelekTipus">
+    <!-- Beszerzes_Tetel.Beszerzes_ID -> Beszerzes_Fej.Beszerzes_ID -->
+    <xs:keyref name="BeszerzesTetel_BeszerzesRef" refer="BeszerzesKey">
+      <xs:selector xpath="Beszerzes_Tetel"/>
+      <xs:field xpath="Beszerzes_ID"/>
+    </xs:keyref>
+
+    <!-- Beszerzes_Tetel.Kiszereles_ID -> Kiszereles.Kiszereles_ID -->
+    <xs:keyref name="BeszerzesTetel_KiszerelesRef" refer="KiszerelesKey">
+      <xs:selector xpath="Beszerzes_Tetel"/>
+      <xs:field xpath="Kiszereles_ID"/>
+    </xs:keyref>
+  </xs:element>
+
+  <xs:complexType name="BeszerzesTetelekTipus">
+    <xs:sequence>
+      <xs:element name="Beszerzes_Tetel" type="BeszerzesTetelTipus" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="BeszerzesTetelTipus">
+    <xs:sequence>
+      <xs:element name="Tetel_ID" type="IDTipus"/>
+      <xs:element name="Beszerzes_ID" type="IDTipus"/>
+      <xs:element name="Kiszereles_ID" type="IDTipus"/>
+      <xs:element name="Mennyiseg" type="xs:integer"/>
+      <xs:element name="Egysegar" type="xs:integer"/>
+      <xs:element name="Osszeg" type="xs:integer"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Globális kulcsok a gyökér alatt -->
+  <xs:key name="GyogyszerKey">
+    <xs:selector xpath="GyogyszertarRendszer/Gyogyszerek/Gyogyszer"/>
+    <xs:field xpath="Gyogyszer_ID"/>
+  </xs:key>
+
+  <xs:key name="BetegsegKey">
+    <xs:selector xpath="GyogyszertarRendszer/Betegsegek/Betegseg"/>
+    <xs:field xpath="Betegseg_ID"/>
+  </xs:key>
+
+</xs:schema>
