@@ -55,10 +55,7 @@ public class MO0VEYDomModify {
         Element gyogyszerek = (Element) root.getElementsByTagName("Gyogyszerek").item(0);
 
         Element ujGy = doc.createElement("Gyogyszer");
-
-        Element id = doc.createElement("Gyogyszer_ID");
-        id.setTextContent("G003");
-        ujGy.appendChild(id);
+        ujGy.setAttribute("Gyogyszer_ID", "G003");
 
         Element nev = doc.createElement("Nev");
         nev.setTextContent("Vitamin C 500 mg");
@@ -87,7 +84,7 @@ public class MO0VEYDomModify {
         NodeList fejek = doc.getElementsByTagName("Rendeles_Fej");
         for (int i = 0; i < fejek.getLength(); i++) {
             Element fej = (Element) fejek.item(i);
-            String id = fej.getElementsByTagName("Rendeles_ID").item(0).getTextContent();
+            String id = fej.getAttribute("Rendeles_ID");
             if (rendelesId.equals(id)) {
                 Element megj = (Element) fej.getElementsByTagName("Megjegyzes").item(0);
                 megj.setTextContent(ujMegjegyzes);
@@ -100,7 +97,7 @@ public class MO0VEYDomModify {
         NodeList tetelek = doc.getElementsByTagName("Rendeles_Tetel");
         for (int i = 0; i < tetelek.getLength(); i++) {
             Element tetel = (Element) tetelek.item(i);
-            String id = tetel.getElementsByTagName("Tetel_ID").item(0).getTextContent();
+            String id = tetel.getAttribute("Tetel_ID");
             if (tetelId.equals(id)) {
                 Element mennyEl = (Element) tetel.getElementsByTagName("Mennyiseg").item(0);
                 int menny = Integer.parseInt(mennyEl.getTextContent());
@@ -120,7 +117,7 @@ public class MO0VEYDomModify {
         NodeList szallitok = doc.getElementsByTagName("Szallito");
         for (int i = 0; i < szallitok.getLength(); i++) {
             Element sz = (Element) szallitok.item(i);
-            String id = sz.getElementsByTagName("Szallito_ID").item(0).getTextContent();
+            String id = sz.getAttribute("Szallito_ID");
             if (szallitoId.equals(id)) {
                 sz.getParentNode().removeChild(sz);
                 break;

@@ -46,7 +46,18 @@ public class MO0VEYDomWrite {
 
         if (node.getNodeType() == Node.ELEMENT_NODE) {
             Element elem = (Element) node;
-            System.out.println(pad + "<" + elem.getTagName() + ">");
+            StringBuilder startTag = new StringBuilder();
+            startTag.append(pad).append("<").append(elem.getTagName());
+
+            NamedNodeMap attrs = elem.getAttributes();
+            for (int i = 0; i < attrs.getLength(); i++) {
+                Node attr = attrs.item(i);
+                startTag.append(" ").append(attr.getNodeName())
+                        .append("=\"").append(attr.getNodeValue()).append("\"");
+            }
+            startTag.append(">");
+
+            System.out.println(startTag);
         }
 
         NodeList children = node.getChildNodes();

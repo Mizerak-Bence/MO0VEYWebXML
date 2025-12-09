@@ -3,9 +3,7 @@
     
   <Gyogyszerek>
         
-    <Gyogyszer>
-            
-      <Gyogyszer_ID>G001</Gyogyszer_ID>
+    <Gyogyszer Gyogyszer_ID="G001">
             
       <Nev>Algoflex 400 mg</Nev>
             
@@ -27,9 +25,7 @@
           
     </Gyogyszer>
         
-    <Gyogyszer>
-            
-      <Gyogyszer_ID>G002</Gyogyszer_ID>
+    <Gyogyszer Gyogyszer_ID="G002">
             
       <Nev>Paracetamol 500 mg</Nev>
             
@@ -55,11 +51,7 @@
     
   <Kiszerelesek>
         
-    <Kiszereles>
-            
-      <Kiszereles_ID>K001</Kiszereles_ID>
-            
-      <Gyogyszer_ID>G001</Gyogyszer_ID>
+    <Kiszereles Gyogyszer_ID="G001" Kiszereles_ID="K001">
             
       <Forma>tabletta</Forma>
             
@@ -71,11 +63,7 @@
           
     </Kiszereles>
         
-    <Kiszereles>
-            
-      <Kiszereles_ID>K002</Kiszereles_ID>
-            
-      <Gyogyszer_ID>G001</Gyogyszer_ID>
+    <Kiszereles Gyogyszer_ID="G001" Kiszereles_ID="K002">
             
       <Forma>tabletta</Forma>
             
@@ -87,11 +75,7 @@
           
     </Kiszereles>
         
-    <Kiszereles>
-            
-      <Kiszereles_ID>K003</Kiszereles_ID>
-            
-      <Gyogyszer_ID>G002</Gyogyszer_ID>
+    <Kiszereles Gyogyszer_ID="G002" Kiszereles_ID="K003">
             
       <Forma>tabletta</Forma>
             
@@ -107,9 +91,7 @@
     
   <Betegsegek>
         
-    <Betegseg>
-            
-      <Betegseg_ID>B001</Betegseg_ID>
+    <Betegseg Betegseg_ID="B001">
             
       <Nev>Fejfajas</Nev>
             
@@ -127,9 +109,7 @@
           
     </Betegseg>
         
-    <Betegseg>
-            
-      <Betegseg_ID>B002</Betegseg_ID>
+    <Betegseg Betegseg_ID="B002">
             
       <Nev>Laz</Nev>
             
@@ -151,31 +131,19 @@
     
   <BetegsegGyogyszerKapcsolatok>
         
-    <BetegsegGyogyszer>
-            
-      <Betegseg_ID>B001</Betegseg_ID>
-            
-      <Gyogyszer_ID>G001</Gyogyszer_ID>
+    <BetegsegGyogyszer Betegseg_ID="B001" Gyogyszer_ID="G001">
             
       <AjánlasLeiras>Fejfajas eseten szukseg szerint, maximum napi 3x1 tabletta.</AjánlasLeiras>
           
     </BetegsegGyogyszer>
         
-    <BetegsegGyogyszer>
-            
-      <Betegseg_ID>B001</Betegseg_ID>
-            
-      <Gyogyszer_ID>G002</Gyogyszer_ID>
+    <BetegsegGyogyszer Betegseg_ID="B001" Gyogyszer_ID="G002">
             
       <AjánlasLeiras>Fejfajas eseten alternativ fajdalomcsillapito.</AjánlasLeiras>
           
     </BetegsegGyogyszer>
         
-    <BetegsegGyogyszer>
-            
-      <Betegseg_ID>B002</Betegseg_ID>
-            
-      <Gyogyszer_ID>G002</Gyogyszer_ID>
+    <BetegsegGyogyszer Betegseg_ID="B002" Gyogyszer_ID="G002">
             
       <AjánlasLeiras>Laz csokkentesere, maximum napi 4x1 tabletta.</AjánlasLeiras>
           
@@ -185,9 +153,7 @@
     
   <Rendelesek>
         
-    <Rendeles_Fej>
-            
-      <Rendeles_ID>R001</Rendeles_ID>
+    <Rendeles_Fej Rendeles_ID="R001">
             
       <Nev>Kiss Anna</Nev>
             
@@ -199,9 +165,7 @@
           
     </Rendeles_Fej>
         
-    <Rendeles_Fej>
-            
-      <Rendeles_ID>R002</Rendeles_ID>
+    <Rendeles_Fej Rendeles_ID="R002">
             
       <Nev>Nagy Peter</Nev>
             
@@ -215,13 +179,7 @@
         
     <Rendeles_Tetelek>
             
-      <Rendeles_Tetel>
-                
-        <Tetel_ID>RT001</Tetel_ID>
-                
-        <Rendeles_ID>R001</Rendeles_ID>
-                
-        <Kiszereles_ID>K001</Kiszereles_ID>
+      <Rendeles_Tetel Kiszereles_ID="K001" Rendeles_ID="R001" Tetel_ID="RT001">
                 
         <Mennyiseg>1</Mennyiseg>
                 
@@ -231,13 +189,7 @@
               
       </Rendeles_Tetel>
             
-      <Rendeles_Tetel>
-                
-        <Tetel_ID>RT002</Tetel_ID>
-                
-        <Rendeles_ID>R001</Rendeles_ID>
-                
-        <Kiszereles_ID>K003</Kiszereles_ID>
+      <Rendeles_Tetel Kiszereles_ID="K003" Rendeles_ID="R001" Tetel_ID="RT002">
                 
         <Mennyiseg>2</Mennyiseg>
                 
@@ -247,13 +199,7 @@
               
       </Rendeles_Tetel>
             
-      <Rendeles_Tetel>
-                
-        <Tetel_ID>RT003</Tetel_ID>
-                
-        <Rendeles_ID>R002</Rendeles_ID>
-                
-        <Kiszereles_ID>K002</Kiszereles_ID>
+      <Rendeles_Tetel Kiszereles_ID="K002" Rendeles_ID="R002" Tetel_ID="RT003">
                 
         <Mennyiseg>1</Mennyiseg>
                 
@@ -269,9 +215,7 @@
     
   <Szallitok>
         
-    <Szallito>
-            
-      <Szallito_ID>S001</Szallito_ID>
+    <Szallito Szallito_ID="S001">
             
       <Nev>GyorsGyogyszer Kft.</Nev>
             
@@ -287,9 +231,7 @@
           
     </Szallito>
         
-    <Szallito>
-            
-      <Szallito_ID>S002</Szallito_ID>
+    <Szallito Szallito_ID="S002">
             
       <Nev>PatikaLogisztika Zrt.</Nev>
             
@@ -309,11 +251,7 @@
     
   <Beszerzesek>
         
-    <Beszerzes_Fej>
-            
-      <Beszerzes_ID>BESZ001</Beszerzes_ID>
-            
-      <Szallito_ID>S001</Szallito_ID>
+    <Beszerzes_Fej Beszerzes_ID="BESZ001" Szallito_ID="S001">
             
       <Szamlaszam>2025-1001</Szamlaszam>
             
@@ -323,11 +261,7 @@
           
     </Beszerzes_Fej>
         
-    <Beszerzes_Fej>
-            
-      <Beszerzes_ID>BESZ002</Beszerzes_ID>
-            
-      <Szallito_ID>S002</Szallito_ID>
+    <Beszerzes_Fej Beszerzes_ID="BESZ002" Szallito_ID="S002">
             
       <Szamlaszam>2025-1015</Szamlaszam>
             
@@ -339,13 +273,7 @@
         
     <Beszerzes_Tetelek>
             
-      <Beszerzes_Tetel>
-                
-        <Tetel_ID>BT001</Tetel_ID>
-                
-        <Beszerzes_ID>BESZ001</Beszerzes_ID>
-                
-        <Kiszereles_ID>K001</Kiszereles_ID>
+      <Beszerzes_Tetel Beszerzes_ID="BESZ001" Kiszereles_ID="K001" Tetel_ID="BT001">
                 
         <Mennyiseg>50</Mennyiseg>
                 
@@ -355,13 +283,7 @@
               
       </Beszerzes_Tetel>
             
-      <Beszerzes_Tetel>
-                
-        <Tetel_ID>BT002</Tetel_ID>
-                
-        <Beszerzes_ID>BESZ001</Beszerzes_ID>
-                
-        <Kiszereles_ID>K002</Kiszereles_ID>
+      <Beszerzes_Tetel Beszerzes_ID="BESZ001" Kiszereles_ID="K002" Tetel_ID="BT002">
                 
         <Mennyiseg>30</Mennyiseg>
                 
@@ -371,13 +293,7 @@
               
       </Beszerzes_Tetel>
             
-      <Beszerzes_Tetel>
-                
-        <Tetel_ID>BT003</Tetel_ID>
-                
-        <Beszerzes_ID>BESZ002</Beszerzes_ID>
-                
-        <Kiszereles_ID>K003</Kiszereles_ID>
+      <Beszerzes_Tetel Beszerzes_ID="BESZ002" Kiszereles_ID="K003" Tetel_ID="BT003">
                 
         <Mennyiseg>40</Mennyiseg>
                 

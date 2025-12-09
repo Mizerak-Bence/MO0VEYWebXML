@@ -44,8 +44,18 @@ public class MO0VEYDomRead {
         for (int i = 0; i < indent; i++) {
             pad.append("  ");
         }
+        StringBuilder startTag = new StringBuilder();
+        startTag.append(pad).append("<").append(element.getTagName());
 
-        System.out.println(pad + "<" + element.getTagName() + ">");
+        NamedNodeMap attrs = element.getAttributes();
+        for (int i = 0; i < attrs.getLength(); i++) {
+            Node attr = attrs.item(i);
+            startTag.append(" ").append(attr.getNodeName())
+                    .append("=\"").append(attr.getNodeValue()).append("\"");
+        }
+        startTag.append(">");
+
+        System.out.println(startTag);
 
         NodeList children = element.getChildNodes();
         for (int i = 0; i < children.getLength(); i++) {

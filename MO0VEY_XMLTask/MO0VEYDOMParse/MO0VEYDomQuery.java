@@ -29,7 +29,7 @@ public class MO0VEYDomQuery {
         NodeList rendelFejek = doc.getElementsByTagName("Rendeles_Fej");
         for (int i = 0; i < rendelFejek.getLength(); i++) {
             Element fej = (Element) rendelFejek.item(i);
-            String rId = fej.getElementsByTagName("Rendeles_ID").item(0).getTextContent();
+            String rId = fej.getAttribute("Rendeles_ID");
             if (rendelesId.equals(rId)) {
                 String nev = fej.getElementsByTagName("Nev").item(0).getTextContent();
                 String email = fej.getElementsByTagName("Email").item(0).getTextContent();
@@ -46,7 +46,7 @@ public class MO0VEYDomQuery {
                 NodeList tetelek = doc.getElementsByTagName("Rendeles_Tetel");
                 for (int j = 0; j < tetelek.getLength(); j++) {
                     Element tetel = (Element) tetelek.item(j);
-                    String tetelRId = tetel.getElementsByTagName("Rendeles_ID").item(0).getTextContent();
+                    String tetelRId = tetel.getAttribute("Rendeles_ID");
                     if (rendelesId.equals(tetelRId)) {
                         int tetelOsszeg = Integer.parseInt(tetel.getElementsByTagName("Osszeg").item(0).getTextContent());
                         osszeg += tetelOsszeg;
