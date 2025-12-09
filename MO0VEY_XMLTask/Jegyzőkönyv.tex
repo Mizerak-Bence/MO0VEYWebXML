@@ -1,0 +1,275 @@
+\documentclass[12pt,a4paper]{article}
+
+% Magyar nyelv, kódolás, betűtípus (Times-szerű)
+\usepackage[magyar]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{newtxtext,newtxmath} % Times New Roman-hoz közeli betűtípus
+
+% Oldalbeállítás, sorkizárt, 1,5 sortáv
+\usepackage{geometry}
+\geometry{margin=3cm}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{ragged2e}
+\justifying
+
+% Címsorok formázása
+\usepackage{titlesec}
+% Címsor1: 14pt, balra igazított, félkövér (1)
+\titleformat{\section}
+  {\bfseries\large}   % 14pt körüli méret 12pt alapnál
+  {\thesection.}       % "1." jelölés
+  {0.5em}{}
+% Címsor2: 12pt, balra igazított, félkövér (1.1)
+\titleformat{\subsection}
+  {\bfseries\normalsize}
+  {\thesubsection.}
+  {0.5em}{}
+
+% Hiperhivatkozott tartalomjegyzék
+\usepackage[hidelinks]{hyperref}
+
+% Képek
+\usepackage{graphicx}
+\usepackage{float}
+
+% Kódlisták
+\usepackage{xcolor}
+\usepackage{listings}
+
+\lstset{
+  basicstyle=\ttfamily\small,   % más betűtípus a kódhoz
+  numbers=left,
+  numberstyle=\tiny,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{red},
+  breaklines=true,
+  frame=single
+}
+
+\begin{document}
+
+%========================================
+% Címlap
+%========================================
+\begin{titlepage}
+    \centering
+    \vspace*{3cm}
+    {\Huge\bfseries Jegyzőkönyv \\[0.5cm]}
+    {\Large Webes adatkezelő környezetek \\[0.3cm]}
+    {\Large Féléves feladat \\[0.3cm]}
+    {\Large Gyógyszertár adatkezelő rendszere\par}
+
+    \vfill
+    \begin{flushright}
+        \textbf{Készítette:} Mizerák Bence\\[0.3cm]
+        \textbf{Neptunkód:} MO0VEY\\[0.3cm]
+        \textbf{Dátum:} 2025. november
+    \end{flushright}
+
+    \vspace{2cm}
+    {\large Miskolc, 2025}
+\end{titlepage}
+
+%========================================
+% Tartalomjegyzék (hiper-hivatkozott)
+%========================================
+\tableofcontents
+\newpage
+
+%========================================
+\section{Bevezetés}
+%========================================
+Ez a jegyzőkönyv a \emph{Webes adatkezelő környezetek} tárgy féléves feladatát
+mutatja be. A projekt célja egy gyógyszertár adatkezelő rendszerének
+modellje volt XML, XML Schema (XSD) és Java DOM API felhasználásával.
+
+Az XML a strukturált adatok platformfüggetlen cseréjére alkalmas
+szabványos formátum. A séma (XSD) biztosítja, hogy az XML dokumentum
+szerkezete, kulcsai és idegen kulcsai jól definiáltak legyenek, míg a
+Java DOM API lehetővé teszi az adatok programozott beolvasását,
+módosítását és kiírását.
+
+%========================================
+\section{A rendszer áttekintése}
+%========================================
+
+\subsection{Domain és fájlstruktúra}
+A modell egy gyógyszertár rendszerének főbb adatait tartalmazza. A
+központi XML állomány a \texttt{MO0VEY\_XML.xml}, amelynek gyökéreleme a
+\texttt{<GyogyszertarRendszer>}. A főbb részegységek:
+
+\begin{itemize}
+  \item \texttt{Gyogyszerek/Gyogyszer}: gyógyszerek törzse
+        (név, hatóanyag, receptköteles, kategória, leírás, mellékhatások),
+  \item \texttt{Kiszerelesek/Kiszereles}: egyes gyógyszerek kiszerelései
+        (forma, mennyiség, ár, egység),
+  \item \texttt{Betegsegek/Betegseg}: betegségek leírása,
+        figyelmeztetések, tünetek,
+  \item \texttt{BetegsegGyogyszerKapcsolatok/BetegsegGyogyszer}:
+        mely gyógyszer mely betegségre ajánlott,
+  \item \texttt{Rendelesek}: vevői rendelések fej- és tételadatai,
+  \item \texttt{Szallitok/Szallito}: beszállítók adatai,
+  \item \texttt{Beszerzesek}: beszerzési számlák fej- és tételadatai.
+\end{itemize}
+
+A fenti XML-hez tartozó sémafájl a \texttt{MO0VEY\_XMLSchema.xsd}, míg a
+DOM alapú Java programok a \texttt{MO0VEYDOMParse} mappában találhatók:
+\texttt{MO0VEYDomRead.java}, \texttt{MO0VEYDomWrite.java},
+\texttt{MO0VEYDomModify.java}, \texttt{MO0VEYDomQuery.java}. A módosított
+állapotot a \texttt{MO0VEY\_XML\_modified.xml} tartalmazza.
+
+%========================================
+\section{ER modell}
+%========================================
+A logikai adatmodellt először egy entitás--kapcsolat (ER) diagramon
+ábrázoltuk. A fő entitások: \emph{Gyogyszer}, \emph{Kiszereles},
+\emph{Betegseg}, \emph{Szallito}, \emph{Rendeles\_Fej},
+\emph{Rendeles\_Tetel}, \emph{Beszerzes\_Fej}, \emph{Beszerzes\_Tetel},
+valamint a \emph{BetegsegGyogyszer} kapcsoló entitás.
+
+A kapcsolatok között megjelennek az 1:N és N:M típusok is. Például egy
+\emph{Gyogyszer}-hez több \emph{Kiszereles} tartozhat (1:N), míg egy
+\emph{Betegseg}-hez több \emph{Gyogyszer} is ajánlható, és fordítva (N:M),
+amit a \emph{BetegsegGyogyszer} entitás közvetít.
+
+Az ER modellt az \ref{fig:er-modell} ábra szemlélteti.
+
+\begin{figure}[H]
+  \centering
+  % Itt az ER modell képfájlja (például ER_Feher.png)
+  \includegraphics[width=0.9\textwidth]{ER_Feher.png}
+  \caption{1. ábra: A gyógyszertár ER modellje}
+  \label{fig:er-modell}
+\end{figure}
+
+%========================================
+\section{XDM modell}
+%========================================
+Az ER diagramból XDM (XML Data Model) modellt készítettünk. Ebben minden
+entitás egy XML elemnek felel meg, a kulcs tulajdonságok pedig
+attribútumként jelennek meg. A gyökér a \texttt{GyogyszertarRendszer}
+elem, ez tartalmazza a fenti részfákat (\texttt{Gyogyszerek},
+\texttt{Kiszerelesek}, \texttt{Betegsegek}, stb.).
+
+Külön figyelmet kapott, hogy minden \texttt{*\_ID} azonosító
+\emph{attribútumként}, ne pedig gyerekelemként szerepeljen, így a
+kulcs/idegen kulcs kapcsolatok természetesebben írhatók le az XSD-ben
+\texttt{xs:key} és \texttt{xs:keyref} használatával.
+
+Az XDM modell felépítését a \ref{fig:xdm-modell} ábra mutatja be.
+
+\begin{figure}[H]
+  \centering
+  % Itt az XDM modell képfájlja (például XDM_Feher.png)
+  \includegraphics[width=0.9\textwidth]{XDM_Feher.png}
+  \caption{2. ábra: A gyógyszertár XDM modellje}
+  \label{fig:xdm-modell}
+\end{figure}
+
+%========================================
+\section{XML és XML Schema}
+%========================================
+Az XDM modell alapján készült el a \texttt{MO0VEY\_XML.xml} állomány. Az
+azonosítók mindenhol attribútumként jelennek meg, például:
+
+\begin{itemize}
+  \item \texttt{<Gyogyszer Gyogyszer\_ID="G001"> ... </Gyogyszer>},
+  \item \texttt{<Kiszereles Kiszereles\_ID="K001" Gyogyszer\_ID="G001"> ...},
+  \item \texttt{<Betegseg Betegseg\_ID="B001"> ...},
+  \item \texttt{<Rendeles\_Fej Rendeles\_ID="R001"> ...}.
+\end{itemize}
+
+Az XSD-ben ezekhez kulcsokat és idegen kulcsokat definiáltunk. Például
+\texttt{GyogyszerKey} a gyógyszerek elsődleges kulcsa, míg a
+\texttt{Kiszereles\_GyogyszerRef} biztosítja, hogy minden
+\texttt{Kiszereles}@\texttt{Gyogyszer\_ID} egy létező
+\texttt{Gyogyszer}@\texttt{Gyogyszer\_ID}-re hivatkozzon. Hasonló
+kulcs--kulcsidegen kapcsolat van a rendelések és rendeléssorok, valamint a
+beszerzések és beszerzéssorok között is.
+
+Külön feladat volt, hogy minden ID-elem attribútummá alakítása után az
+\texttt{xs:key} és \texttt{xs:keyref} kifejezésekben a mezőket
+\texttt{@AttribútumNév} formában hivatkoztassuk, illetve a kulcsok
+láthatósági tartományát úgy állítsuk be, hogy a vonatkozó keyref-ek ne
+essenek ki a scope-ból.
+
+%========================================
+\section{Java DOM programok}
+%========================================
+A projekt második része a Java DOM API használata volt. Négy önálló
+program készült:
+
+\begin{itemize}
+  \item \textbf{MO0VEYDomRead}: beolvassa az XML-t és fastruktúraként
+        kiírja a konzolra,
+  \item \textbf{MO0VEYDomWrite}: hasonló fa-jellegű kiírást végez, majd
+        elmenti az eredményt a \texttt{MO0VEY1XML.xml} állományba,
+  \item \textbf{MO0VEYDomModify}: módosítja az adatokat (új gyógyszer
+        felvétele, megjegyzés változtatása, mennyiség és összeg
+        újraszámolása, beszállító törlése) és elmenti a
+        \texttt{MO0VEY\_XML\_modified.xml} fájlba,
+  \item \textbf{MO0VEYDomQuery}: egy konkrét rendelés adatait gyűjti
+        össze és számolja ki a végösszeget.
+\end{itemize}
+
+Azonosítókhoz a Java kódban már mindenhol attribútumként férünk hozzá,
+például \texttt{getAttribute("Rendeles\_ID")} vagy
+\texttt{getAttribute("Kiszereles\_ID")}. Az alábbi kódrészlet a
+\texttt{MO0VEYDomQuery} osztályból mutatja be, hogyan történik egy
+konkrét rendelés (\texttt{R001}) lekérdezése és összegzése. 
+
+\begin{lstlisting}[language=java, caption={3. ábra: Részlet a MO0VEYDomQuery osztályból}]
+private static void printRendelesById(Document doc, String rendelesId) {
+    NodeList rendelFejek = doc.getElementsByTagName("Rendeles_Fej");
+    for (int i = 0; i < rendelFejek.getLength(); i++) {
+        Element fej = (Element) rendelFejek.item(i);
+        String rId = fej.getAttribute("Rendeles_ID");
+        if (rendelesId.equals(rId)) {
+            String nev = fej.getElementsByTagName("Nev").item(0).getTextContent();
+            String email = fej.getElementsByTagName("Email").item(0).getTextContent();
+            String datum = fej.getElementsByTagName("Datum").item(0).getTextContent();
+            String megjegyzes = fej.getElementsByTagName("Megjegyzes").item(0)
+                                         .getTextContent();
+
+            System.out.println("Rendeles ID: " + rId);
+            System.out.println("Nev: " + nev);
+            System.out.println("E-mail: " + email);
+            System.out.println("Datum: " + datum);
+            System.out.println("Megjegyzes: " + megjegyzes);
+
+            int osszeg = 0;
+            NodeList tetelek = doc.getElementsByTagName("Rendeles_Tetel");
+            for (int j = 0; j < tetelek.getLength(); j++) {
+                Element tetel = (Element) tetelek.item(j);
+                String tetelRId = tetel.getAttribute("Rendeles_ID");
+                if (rendelesId.equals(tetelRId)) {
+                    int tetelOsszeg = Integer.parseInt(
+                        tetel.getElementsByTagName("Osszeg").item(0).getTextContent()
+                    );
+                    osszeg += tetelOsszeg;
+                }
+            }
+            System.out.println("Vegosszeg: " + osszeg + " Ft");
+            break;
+        }
+    }
+}
+\end{lstlisting}
+
+A kódrészlet jól szemlélteti, hogy a rendelés fej- és tételadatai
+attribútumalapú azonosítók segítségével kapcsolódnak össze, ami
+megfelel az XSD-ben definiált kulcs--kulcsidegen kapcsolatoknak.
+
+%========================================
+\section{Összegzés}
+%========================================
+A projekt során egy teljes gyógyszertári adatkezelő példát valósítottunk
+meg az ER modelltől kezdve az XDM modellen, XML/XSD pároson át egészen a
+Java DOM alapú feldolgozásig. A rendszer jól demonstrálja, hogyan lehet
+az elméleti adatmodelleket gyakorlatban is használható, validálható XML
+struktúrává, majd programozottan feldolgozható adathalmazzá alakítani.
+
+\end{document}
