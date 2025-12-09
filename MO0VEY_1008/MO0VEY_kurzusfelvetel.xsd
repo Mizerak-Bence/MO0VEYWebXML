@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:element name="MO0VEY_kurzusfelvetel">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="hallgató" type="hallgatóTipus"></xs:element>
+                <xs:element name="kurzusok" type ="kurzusTipus"></xs:element>
+            </xs:sequence>
+                <xs:attribute name="tanev" type="tanevTipus" use="required"/>
+                <xs:attribute name="egyetem" type="egyetemTipus" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="hallgatóTipus">
+    <xs:sequence>
+      <xs:element name="hallgato" type="hallgatoTipus"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="hallgatoTipus">
+    <xs:sequence>
+      <xs:element name="hnev" type="xs:string"/>
+      <xs:element name="szulnev" type="xs:string"/>
+      <xs:element name="szak" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="kurzusokTipus">
+    <xs:sequence>
+      <xs:element name="kurzus" type="kurzusTipus"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="kurzusTipus">
+    <xs:sequence>
+      <xs:element name="kurzusnev" type="xs:string"></xs:element>
+      <xs:element name="kredit" type="xs:int"></xs:element>
+      <xs:element name="hely" type="xs:string"></xs:element>
+      <xs:element name="idopont" type="xs:string"></xs:element>
+      <xs:element name="oktato" type="xs:string"></xs:element>
+      <xs:element name="oraado" type="xs:string" minOccurs="0"></xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:ID" use="required"></xs:attribute>
+    <xs:attribute name="jovahagyas" type="xs:boolean" use="optional"></xs:attribute>
+    <xs:attribute name="nyelv" type="xs:string" use="optional"></xs:attribute>
+  </xs:complexType>
+  <xs:simpleType name="tanevTipus">
+     <xs:restriction base="xs:string">
+      <xs:pattern value="\d{4}/\d{2}(/([12]))?"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="egyetemTipus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Miskolc Egyetem"></xs:enumeration>
+      <xs:enumeration value="Eötvös Lóránd Tudományegyetem"></xs:enumeration>
+      <xs:enumeration value="Budapesti Műszaki Egyetem"></xs:enumeration>
+      <xs:enumeration value="Debreceni Egyetem"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>

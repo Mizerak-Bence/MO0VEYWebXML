@@ -1,0 +1,134 @@
+[
+    {
+        "targy": "Szamitogep halozatok",
+        "idopont":{
+            "nap": "Hetfo",
+            "tol": "8",
+            "ig": "10"
+        },
+        "helyszin": "E1",
+        "oktato": "Dr. Kovacs Szilveszter Dezso",
+        "szak": "Programtervezo informatokus BSC"
+    },
+    {
+        "targy": "Web technologia 1.",
+        "idopont":{
+            "nap": "Hetfo",
+            "tol": "10",
+            "ig": "12"
+        },
+        "helyszin": "E5",
+        "oktato": "Dr. Agradi Anita",
+        "szak": "Programtervezo informatokus BSC"
+    },
+    {
+        "targy": "Mesterséges intelligencia alapok",
+        "idopont":{
+            "nap": "Kedd",
+            "tol": "10",
+            "ig": "12"
+        },
+        "helyszin": "E32",
+        "oktato": "Kunne Dr. Tamas Judit",
+        "szak": "Programtervezo informatokus BSC"
+    },
+    {
+        "targy": "Algoritmusok es vizsgalatuk",
+        "idopont":{
+            "nap": "Kedd",
+            "tol": "14",
+            "ig": "16"
+        },
+        "helyszin": "E30",
+        "oktato": "Dr. Hazy Attila",
+        "szak": "Programtervezo informatokus BSC"
+    },
+    {
+        "targy": "Webes adatkezelo kornyezetek",
+        "idopont":{
+            "nap": "Szerda",
+            "tol": "10",
+            "ig": "12"
+        },
+        "helyszin": "In 103",
+        "oktato": "Dr. Bednarik Laszlo",
+        "szak": "Programtervezo informatokus BSC"
+    },
+    {
+        "targy": "Mesterséges intelligencia alapok",
+        "idopont":{
+            "nap": "Kedd",
+            "tol": "12",
+            "ig": "14"
+        },
+        "helyszin": "E32",
+        "oktato": "Kunne Dr. Tamas Judit",
+        "szak": "Programtervezo informatokus BSC"
+    },
+    {
+        "targy": "Vallalati informacios rendszerek fejlesztése",
+        "idopont":{
+            "nap": "Szerda",
+            "tol": "14",
+            "ig": "16"
+        },
+        "helyszin": "In 103",
+        "oktato": "Dr. Sasvari Peter",
+        "szak": "Programtervezo informatokus BSC"
+    },
+    {
+        "targy": "Vallalati informacios rendszerek fejlesztése",
+        "idopont":{
+            "nap": "Szerda",
+            "tol": "18",
+            "ig": "20"
+        },
+        "helyszin": "In 103",
+        "oktato": "Dr. Sasvari Peter",
+        "szak": "Programtervezo informatokus BSC"
+    },
+    {
+        "targy": "Szamitogep halozatok",
+        "idopont":{
+            "nap": "Csutortok",
+            "tol": "10",
+            "ig": "12"
+        },
+        "helyszin": "E1",
+        "oktato": "Dr. Kovacs Szilveszter Dezso",
+        "szak": "Programtervezo informatokus BSC"
+    },
+    {
+        "targy": "Algoritmusok es vizsgalatuk",
+        "idopont":{
+            "nap": "Szerda",
+            "tol": "16",
+            "ig": "18"
+        },
+        "helyszin": "E30",
+        "oktato": "Dr. Hazy Attila",
+        "szak": "Programtervezo informatokus BSC"
+    },
+    {
+        "targy": "Webes adatkezelo kornyezetek",
+        "idopont":{
+            "nap": "Szerda",
+            "tol": "8",
+            "ig": "10"
+        },
+        "helyszin": "E31",
+        "oktato": "Prof. Dr. Kovacs Laszlo",
+        "szak": "Programtervezo informatokus BSC"
+    },
+    {
+        "targy": "Web technologia 1.",
+        "idopont":{
+            "nap": "Szerda",
+            "tol": "12",
+            "ig": "14"
+        },
+        "helyszin": "In 101",
+        "oktato": "Dr. Bednarik Laszlo",
+        "szak": "Programtervezo informatokus BSC"
+    }      
+]

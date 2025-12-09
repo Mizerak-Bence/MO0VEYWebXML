@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+
+  <!-- Gyökérelem -->
+  <xs:element name="LD_orarend">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ora" type="OraType" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Ora összetett típus -->
+  <xs:complexType name="OraType">
+    <xs:sequence>
+      <xs:element name="targy" type="xs:string"/>
+      <xs:element name="idopont" type="IdopontType"/>
+      <xs:element name="helyszin" type="xs:string"/>
+      <xs:element name="oktato" type="xs:string"/>
+      <xs:element name="szak" type="xs:string"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:positiveInteger" use="required"/>
+    <xs:attribute name="tipus" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <!-- engedjük az ékezetes és ékezet nélküli változatokat is -->
+          <xs:enumeration value="eloadas"/>
+          <xs:enumeration value="előadás"/>
+          <xs:enumeration value="gyakorlat"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+
+  <!-- Idopont összetett típus -->
+  <xs:complexType name="IdopontType">
+    <xs:sequence>
+      <xs:element name="nap" type="NapType"/>
+      <xs:element name="tol" type="OraPercType"/>
+      <xs:element name="ig" type="OraPercType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Nap megengedett értékei (több írásmódot is engedünk) -->
+  <xs:simpleType name="NapType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Hetfo"/>
+      <xs:enumeration value="Hétfő"/>
+      <xs:enumeration value="Hetfő"/>
+      <xs:enumeration value="Hetfő"/>
+      <xs:enumeration value="Kedd"/>
+      <xs:enumeration value="Szerda"/>
+      <xs:enumeration value="Csütörtök"/>
+      <xs:enumeration value="Csutortok"/>
+      <!-- Ha szeretnéd szabad szövegre engedni, cseréld xs:string-re -->
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Óra:Perc (08:00 vagy 8:00) -->
+  <xs:simpleType name="OraPercType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="^([01]?\d|2[0-3]):[0-5]\d$"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>
