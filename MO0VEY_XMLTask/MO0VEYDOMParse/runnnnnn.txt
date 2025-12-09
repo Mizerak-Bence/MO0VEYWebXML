@@ -1,0 +1,1 @@
+terminált mappából -> javac *.java
