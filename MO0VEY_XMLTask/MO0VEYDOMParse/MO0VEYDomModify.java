@@ -32,16 +32,17 @@ public class MO0VEYDomModify {
             // 4) Egy beszállító törlése (S002)
             removeSzallito(doc, "S002");
 
-            // Módosított dokumentum kiírása a konzolra és mentése fájlba
+            // Módosított dokumentum adatainak kiírása típus + érték formában (XML formátum nélkül)
+            System.out.println("MÓDOSÍTOTT DOKUMENTUM ADATAI:\n");
+            printDocumentData(doc.getDocumentElement(), 0);
+
+            // Módosított dokumentum mentése fájlba (továbbra is XML-ben)
             TransformerFactory tf = TransformerFactory.newInstance();
             Transformer transformer = tf.newTransformer();
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
 
             DOMSource source = new DOMSource(doc);
-            StreamResult consoleResult = new StreamResult(System.out);
-            transformer.transform(source, consoleResult);
-
             StreamResult fileResult = new StreamResult(new File("MO0VEY_XML_modified.xml"));
             transformer.transform(source, fileResult);
 
@@ -121,6 +122,84 @@ public class MO0VEYDomModify {
             if (szallitoId.equals(id)) {
                 sz.getParentNode().removeChild(sz);
                 break;
+            }
+        }
+    }
+
+    private static void printDocumentData(Element element, int indent) {
+        StringBuilder padBuilder = new StringBuilder();
+        for (int i = 0; i < indent; i++) {
+            padBuilder.append("  ");
+        }
+        String pad = padBuilder.toString();
+
+        NamedNodeMap attrs = element.getAttributes();
+        NodeList children = element.getChildNodes();
+
+        boolean hasElementChild = false;
+        for (int i = 0; i < children.getLength(); i++) {
+            if (children.item(i).getNodeType() == Node.ELEMENT_NODE) {
+                hasElementChild = true;
+                break;
+            }
+        }
+
+        if (!hasElementChild) {
+            StringBuilder textBuilder = new StringBuilder();
+            for (int i = 0; i < children.getLength(); i++) {
+                Node n = children.item(i);
+                if (n.getNodeType() == Node.TEXT_NODE) {
+                    String t = n.getTextContent().trim();
+                    if (!t.isEmpty()) {
+                        if (textBuilder.length() > 0) {
+                            textBuilder.append(" ");
+                        }
+                        textBuilder.append(t);
+                    }
+                }
+            }
+            String text = textBuilder.toString();
+
+            StringBuilder line = new StringBuilder();
+            line.append(pad).append(element.getTagName());
+
+            if (attrs.getLength() > 0) {
+                line.append(" [");
+                for (int i = 0; i < attrs.getLength(); i++) {
+                    Node attr = attrs.item(i);
+                    if (i > 0) {
+                        line.append(", ");
+                    }
+                    line.append(attr.getNodeName()).append("=").append(attr.getNodeValue());
+                }
+                line.append("]");
+            }
+
+            if (!text.isEmpty()) {
+                line.append(" = ").append(text);
+            }
+
+            System.out.println(line.toString());
+            return;
+        }
+
+        System.out.println(pad + element.getTagName());
+
+        if (attrs.getLength() > 0) {
+            for (int i = 0; i < attrs.getLength(); i++) {
+                Node attr = attrs.item(i);
+                System.out.println(pad + "  @" + attr.getNodeName() + " = " + attr.getNodeValue());
+            }
+        }
+
+        for (int i = 0; i < children.getLength(); i++) {
+            Node node = children.item(i);
+            if (node.getNodeType() == Node.ELEMENT_NODE) {
+                printDocumentData((Element) node, indent + 1);
+                // Üres sor a "tételek" között a jobb tagoltságért
+                if (indent == 1) {
+                    System.out.println();
+                }
             }
         }
     }

@@ -20,7 +20,7 @@ public class MO0VEYDomWrite {
             Document doc = builder.parse(xmlFile);
             doc.getDocumentElement().normalize();
 
-            // Fastruktúra jellegű kiírás konzolra
+            // Adatok kiírása: típus (elemnév), attribútumok és érték, XML formátum nélkül
             printTree(doc.getDocumentElement(), 0);
 
             // Mentés új fájlba
@@ -39,43 +39,88 @@ public class MO0VEYDomWrite {
     }
 
     private static void printTree(Node node, int indent) {
-        StringBuilder pad = new StringBuilder();
-        for (int i = 0; i < indent; i++) {
-            pad.append("  ");
+        if (node.getNodeType() != Node.ELEMENT_NODE) {
+            return;
         }
 
-        if (node.getNodeType() == Node.ELEMENT_NODE) {
-            Element elem = (Element) node;
-            StringBuilder startTag = new StringBuilder();
-            startTag.append(pad).append("<").append(elem.getTagName());
+        Element element = (Element) node;
 
-            NamedNodeMap attrs = elem.getAttributes();
+        StringBuilder padBuilder = new StringBuilder();
+        for (int i = 0; i < indent; i++) {
+            padBuilder.append("  ");
+        }
+        String pad = padBuilder.toString();
+
+        NamedNodeMap attrs = element.getAttributes();
+        NodeList children = element.getChildNodes();
+
+        boolean hasElementChild = false;
+        for (int i = 0; i < children.getLength(); i++) {
+            if (children.item(i).getNodeType() == Node.ELEMENT_NODE) {
+                hasElementChild = true;
+                break;
+            }
+        }
+
+        // Levél elem: típus + opcionális attribútumok + érték
+        if (!hasElementChild) {
+            StringBuilder textBuilder = new StringBuilder();
+            for (int i = 0; i < children.getLength(); i++) {
+                Node n = children.item(i);
+                if (n.getNodeType() == Node.TEXT_NODE) {
+                    String t = n.getTextContent().trim();
+                    if (!t.isEmpty()) {
+                        if (textBuilder.length() > 0) {
+                            textBuilder.append(" ");
+                        }
+                        textBuilder.append(t);
+                    }
+                }
+            }
+            String text = textBuilder.toString();
+
+            StringBuilder line = new StringBuilder();
+            line.append(pad).append(element.getTagName());
+
+            if (attrs.getLength() > 0) {
+                line.append(" [");
+                for (int i = 0; i < attrs.getLength(); i++) {
+                    Node attr = attrs.item(i);
+                    if (i > 0) {
+                        line.append(", ");
+                    }
+                    line.append(attr.getNodeName()).append("=").append(attr.getNodeValue());
+                }
+                line.append("]");
+            }
+
+            if (!text.isEmpty()) {
+                line.append(" = ").append(text);
+            }
+
+            System.out.println(line.toString());
+            return;
+        }
+
+        // Nem levél elem: típus és attribútumok, majd a gyermek elemek
+        System.out.println(pad + element.getTagName());
+
+        if (attrs.getLength() > 0) {
             for (int i = 0; i < attrs.getLength(); i++) {
                 Node attr = attrs.item(i);
-                startTag.append(" ").append(attr.getNodeName())
-                        .append("=\"").append(attr.getNodeValue()).append("\"");
+                System.out.println(pad + "  @" + attr.getNodeName() + " = " + attr.getNodeValue());
             }
-            startTag.append(">");
-
-            System.out.println(startTag);
         }
 
-        NodeList children = node.getChildNodes();
         for (int i = 0; i < children.getLength(); i++) {
             Node child = children.item(i);
             if (child.getNodeType() == Node.ELEMENT_NODE) {
                 printTree(child, indent + 1);
-            } else if (child.getNodeType() == Node.TEXT_NODE) {
-                String text = child.getTextContent().trim();
-                if (!text.isEmpty()) {
-                    System.out.println(pad + "  " + text);
+                // Üres sor a "tételek" között a jobb tagoltságért
+                if (indent == 1) {
+                    System.out.println();
                 }
             }
-        }
-
-        if (node.getNodeType() == Node.ELEMENT_NODE) {
-            Element elem = (Element) node;
-            System.out.println(pad + "</" + elem.getTagName() + ">");
         }
     }
 }

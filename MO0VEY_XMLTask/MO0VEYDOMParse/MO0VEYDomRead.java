@@ -20,8 +20,17 @@ public class MO0VEYDomRead {
             Document doc = builder.parse(xmlFile);
             doc.getDocumentElement().normalize();
 
-            // Teljes dokumentum kiírása blokk formában a konzolra
-            printElement(doc.getDocumentElement(), 0);
+            Element root = doc.getDocumentElement();
+
+            System.out.println("========== GYÓGYSZERTÁR RENDSZER ==========");
+
+            printSection(root, "Gyogyszerek", "GYÓGYSZEREK");
+            printSection(root, "Kiszerelesek", "KISZERELESEK");
+            printSection(root, "Betegsegek", "BETEGSÉGEK");
+            printSection(root, "BetegsegGyogyszerKapcsolatok", "BETEGSÉG–GYÓGYSZER KAPCSOLATOK");
+            printSection(root, "Rendelesek", "RENDELÉSEK");
+            printSection(root, "Szallitok", "SZÁLLÍTÓK");
+            printSection(root, "Beszerzesek", "BESZERZÉSEK");
 
             // Mentés fájlba (MO0VEY_XML_read_out.xml)
             TransformerFactory tf = TransformerFactory.newInstance();
@@ -38,38 +47,99 @@ public class MO0VEYDomRead {
         }
     }
 
-    private static void printElement(Element element, int indent) {
-        // Behúzás előállítása
-        StringBuilder pad = new StringBuilder();
-        for (int i = 0; i < indent; i++) {
-            pad.append("  ");
+    private static void printSection(Element root, String childName, String title) {
+        NodeList children = root.getChildNodes();
+        for (int i = 0; i < children.getLength(); i++) {
+            Node node = children.item(i);
+            if (node.getNodeType() == Node.ELEMENT_NODE) {
+                Element elem = (Element) node;
+                if (elem.getTagName().equals(childName)) {
+                    System.out.println();
+                    System.out.println("---- " + title + " ----");
+                    printElement(elem, 0);
+                    break;
+                }
+            }
         }
-        StringBuilder startTag = new StringBuilder();
-        startTag.append(pad).append("<").append(element.getTagName());
+    }
+
+    private static void printElement(Element element, int indent) {
+        StringBuilder padBuilder = new StringBuilder();
+        for (int i = 0; i < indent; i++) {
+            padBuilder.append("  ");
+        }
+        String pad = padBuilder.toString();
 
         NamedNodeMap attrs = element.getAttributes();
-        for (int i = 0; i < attrs.getLength(); i++) {
-            Node attr = attrs.item(i);
-            startTag.append(" ").append(attr.getNodeName())
-                    .append("=\"").append(attr.getNodeValue()).append("\"");
-        }
-        startTag.append(">");
-
-        System.out.println(startTag);
-
         NodeList children = element.getChildNodes();
+
+        boolean hasElementChild = false;
+        for (int i = 0; i < children.getLength(); i++) {
+            if (children.item(i).getNodeType() == Node.ELEMENT_NODE) {
+                hasElementChild = true;
+                break;
+            }
+        }
+
+        // Levél elem: csak típus (tag név) + érték, opcionálisan attribútumokkal
+        if (!hasElementChild) {
+            StringBuilder textBuilder = new StringBuilder();
+            for (int i = 0; i < children.getLength(); i++) {
+                Node node = children.item(i);
+                if (node.getNodeType() == Node.TEXT_NODE) {
+                    String t = node.getTextContent().trim();
+                    if (!t.isEmpty()) {
+                        if (textBuilder.length() > 0) {
+                            textBuilder.append(" ");
+                        }
+                        textBuilder.append(t);
+                    }
+                }
+            }
+            String text = textBuilder.toString();
+
+            StringBuilder line = new StringBuilder();
+            line.append(pad).append(element.getTagName());
+
+            if (attrs.getLength() > 0) {
+                line.append(" [");
+                for (int i = 0; i < attrs.getLength(); i++) {
+                    Node attr = attrs.item(i);
+                    if (i > 0) {
+                        line.append(", ");
+                    }
+                    line.append(attr.getNodeName()).append("=").append(attr.getNodeValue());
+                }
+                line.append("]");
+            }
+
+            if (!text.isEmpty()) {
+                line.append(" = ").append(text);
+            }
+
+            System.out.println(line.toString());
+            return;
+        }
+
+        // Nem levél elem: típust és attribútumokat külön sorokban írjuk ki, majd a gyerekeket
+        System.out.println(pad + element.getTagName());
+
+        if (attrs.getLength() > 0) {
+            for (int i = 0; i < attrs.getLength(); i++) {
+                Node attr = attrs.item(i);
+                System.out.println(pad + "  @" + attr.getNodeName() + " = " + attr.getNodeValue());
+            }
+        }
+
         for (int i = 0; i < children.getLength(); i++) {
             Node node = children.item(i);
             if (node.getNodeType() == Node.ELEMENT_NODE) {
                 printElement((Element) node, indent + 1);
-            } else if (node.getNodeType() == Node.TEXT_NODE) {
-                String text = node.getTextContent().trim();
-                if (!text.isEmpty()) {
-                    System.out.println(pad + "  " + text);
+                // Üres sor a "tételek" között a jobb tagoltságért
+                if (indent == 1) {
+                    System.out.println();
                 }
             }
         }
-
-        System.out.println(pad + "</" + element.getTagName() + ">");
     }
 }

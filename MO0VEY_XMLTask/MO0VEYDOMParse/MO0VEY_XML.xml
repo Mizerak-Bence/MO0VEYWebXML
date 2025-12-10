@@ -94,6 +94,18 @@
       <Datum>2025-11-03</Datum>
       <Megjegyzes>Atvetel szemelyesen a patikaban.</Megjegyzes>
     </Rendeles_Fej>
+    <Rendeles_Fej Rendeles_ID="R003">
+      <Nev>Szabo Eva</Nev>
+      <Email>eva.szabo@example.com</Email>
+      <Datum>2025-11-05</Datum>
+      <Megjegyzes>Hazhozszallitas este 6 utan.</Megjegyzes>
+    </Rendeles_Fej>
+    <Rendeles_Fej Rendeles_ID="R004">
+      <Nev>Toth Laszlo</Nev>
+      <Email>laszlo.toth@example.com</Email>
+      <Datum>2025-11-06</Datum>
+      <Megjegyzes>Telefonos egyeztetes kiszallitas elott.</Megjegyzes>
+    </Rendeles_Fej>
 
     <Rendeles_Tetelek>
       <Rendeles_Tetel Tetel_ID="RT001" Rendeles_ID="R001" Kiszereles_ID="K001">
@@ -110,6 +122,16 @@
         <Mennyiseg>1</Mennyiseg>
         <Egysegar>2790</Egysegar>
         <Osszeg>2790</Osszeg>
+      </Rendeles_Tetel>
+      <Rendeles_Tetel Tetel_ID="RT004" Rendeles_ID="R003" Kiszereles_ID="K003">
+        <Mennyiseg>1</Mennyiseg>
+        <Egysegar>1590</Egysegar>
+        <Osszeg>1590</Osszeg>
+      </Rendeles_Tetel>
+      <Rendeles_Tetel Tetel_ID="RT005" Rendeles_ID="R004" Kiszereles_ID="K001">
+        <Mennyiseg>2</Mennyiseg>
+        <Egysegar>1590</Egysegar>
+        <Osszeg>3180</Osszeg>
       </Rendeles_Tetel>
     </Rendeles_Tetelek>
   </Rendelesek>

@@ -1,1 +1,23 @@
 terminált mappából -> javac *.java
+
+egyenként:
+
+	java MO0VEYDomRead
+	java MO0VEYDomWrite
+	java MO0VEYDomModify
+	java MO0VEYDomQuery
+
+
+probléma:
+ER be tulajdonságokat máshogy jelöld legyen csillag
+nyilak semmiképpen nincsen a tulajdonságoknak
+egységes legyen egy sorban a tulajdonságok
+--			átírva		-- 
+
+mo0veydomread kiírást blokkosítani külön részekben írja ki hanem kb szekciókban gyógyszerek, mellékhatások...
+		- módosítva--
+
+a mo0veydomquery-ben legyen legalább 4 rendelés kiírva
+		-módosítva-
+
+xsd nincs unique - már van

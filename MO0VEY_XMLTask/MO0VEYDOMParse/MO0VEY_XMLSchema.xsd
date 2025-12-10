@@ -250,6 +250,12 @@
       <xs:selector xpath="Beszerzes_Fej"/>
       <xs:field xpath="@Beszerzes_ID"/>
     </xs:key>
+
+    <!-- 1-1 kapcsolat: minden szamlaszam pontosan egy Beszerzes_Fej-hez tartozik -->
+    <xs:unique name="Beszerzes_Szamlaszam_Unique">
+      <xs:selector xpath="Beszerzes_Fej"/>
+      <xs:field xpath="Szamlaszam"/>
+    </xs:unique>
   </xs:element>
 
   <xs:complexType name="BeszerzesekTipus">

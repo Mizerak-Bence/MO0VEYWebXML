@@ -17,11 +17,29 @@ public class MO0VEYDomQuery {
             Document doc = builder.parse(xmlFile);
             doc.getDocumentElement().normalize();
 
-            System.out.println("\nEgy konkrét rendelés adatai (R001):");
-            printRendelesById(doc, "R001");
+            printElsoNRendeles(doc, 4);
 
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    private static void printElsoNRendeles(Document doc, int n) {
+        NodeList rendelFejek = doc.getElementsByTagName("Rendeles_Fej");
+        int osszesRendeles = rendelFejek.getLength();
+
+        if (osszesRendeles < n) {
+            System.out.println("Figyelem: az XML-ben csak " + osszesRendeles +
+                    " rendelés található, ezért nem lehet legalább " + n + " különböző rendelést kiírni.\n");
+        }
+
+        int darab = Math.min(n, osszesRendeles);
+
+        for (int i = 0; i < darab; i++) {
+            Element fej = (Element) rendelFejek.item(i);
+            String rId = fej.getAttribute("Rendeles_ID");
+            printRendelesById(doc, rId);
+            System.out.println();
         }
     }
 
